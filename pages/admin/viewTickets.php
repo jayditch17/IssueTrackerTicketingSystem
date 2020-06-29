@@ -24,7 +24,7 @@
 
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">Issue Tracker</div>
+      <div class="sidebar-heading">View Tickets</div>
       <div class="list-group list-group-flush">
         <a href="home.php" class="list-group-item list-group-item-action bg-light">Dashboard</a>
         <a href="newTicket.php" class="list-group-item list-group-item-action bg-light">New Ticket</a>
