@@ -74,6 +74,48 @@
         <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
         <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p>
       </div> -->
+
+      <div class="form-group">
+        <h4>New Issue</h4>
+  <label>Project:</label>
+  <input type="text" class="form-control" required>
+</div>
+<div class="form-group">
+  <label>Tracker:</label>
+  <input type="text" class="form-control" required>
+</div>
+<div class="form-group">
+  <label>Subject:</label>
+  <input type="text" class="form-control" required>
+</div>
+<div class="form-group">
+  <label>Tracker:</label>
+  <input type="text" class="form-control" required>
+</div>
+<div class="form-group">
+  <label for="comment">Description:</label>
+  <textarea class="form-control" rows="5" id="comment" required></textarea>
+</div>
+<div class="form-group">
+  <label>Tracker:</label>
+  <input type="text" class="form-control" required>
+</div>
+<div class="form-group">
+  <label for="sel1">Status:</label>
+  <select class="form-control" id="sel1">
+    <option>New</option>
+    <option>2</option>
+  </select>
+</div>
+<div class="form-group">
+  <label for="sel1">Priority:</label>
+  <select class="form-control" id="sel1">
+    <option>Normal</option>
+    <option>2</option>
+  </select>
+</div>
+ <input type="submit" value="Create">
+<input type="submit" value="Create and Continue">
     </div>
     <!-- /#page-content-wrapper -->
 
