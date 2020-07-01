@@ -16,17 +16,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
-
-
-
-Route::get('/admin-home', function () {
-    return view('subview.pages.admin.home');
-});
-
-Route::get('/admin-newTicket', function () {
-    return view('subview.pages.admin.newTicket');
-});
-
-Route::get('/admin-viewTicket', function () {
-    return view('subview.pages.admin.viewTickets');
-});
