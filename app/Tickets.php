@@ -1,15 +1,12 @@
-<php 
-
 <?php
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Tickets extends Model
 {
-
-    protected $fillable = [
-        'id', 'project', 'tracker', 'status', 'priority', 'subject', 'assignee', 'updated'
-    ];
+   protected $fillable =[
+   		'id','project', 'tracker', 'status', 'priority', 'subject', 'assignee', 'updated'
+   ];
 }

@@ -89,16 +89,19 @@
         </thead>
         <tbody>
           <tr>
-            @foreach($tickets as $tic)
-            <td>{{ $tic->id }}</td>
-            <td>{{ $tic->project }}</td>
-            <td>{{ $tic->tracker }}</td>
-            <td>{{ $tic->status }}</td>
-            <td>{{ $tic->priority }}</td>
-            <td>{{ $tic->subject }}</td>
-            <td>{{ $tic->assignee }}</td>
-            <td>{{ $tic->updated }}</td>
+            
+            @foreach($tickets as $row)
+            <td>{{$row->id}}</td>
+            <td>{{$row->project}}</td>
+            <td>{{$row->tracker}}</td>
+            <td>{{$row->status}}</td>
+            <td>{{$row->priority}}</td>
+            <td>{{$row->subject}}</td>
+            <td>{{$row->assignee}}</td>
+            <td>{{$row->updated}}</td>
+          @endforeach
           </tr>
+          
         </tbody>
       </table>
     </div>
