@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Manage Tickets-Admin</title>
+    <title>Manage Users-Admin</title>
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -28,73 +28,26 @@
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin-users') }}">Manage Users</a>
               </li>
-              <li class="nav-item active">
+              <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin-tickets') }}">Manage Tickets</a>
               </li>
             </ul>
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
               
-              <li class="nav-item">
-                <a class="nav-link" href="#">+New Ticket</a>
+              <li class="nav-item active">
+                <a class="nav-link" href="{{ route('admin-newt') }}">+New Ticket</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Log Out</a>
               </li>
-              <!--
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </li> -->
+
             </ul>
           </div>
         </nav>
         <div class="container-fluid">
-          <h4 class="mt-4">Tickets</h4>
+          <h4 class="mt-4">New Ticket</h4>
         </div>
-        <table class="table table-bordered table-striped table-sm">
-          <thead class="table-secondary">
-            <tr>
-              <th>#</th>
-              <th>Project</th>
-              <th>Tracker</th>
-              <th>Status</th>
-              <th>Priority</th>
-              <th>Subject</th>
-              <th>Assignee</th>
-              <th>Updated</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              
-              @foreach($tickets as $row)
-              <td>{{$row->id}}</td>
-              <td>{{$row->project}}</td>
-              <td>{{$row->tracker}}</td>
-              <td>{{$row->status}}</td>
-              <td>{{$row->priority}}</td>
-              <td>{{$row->subject}}</td>
-              <td>{{$row->assignee}}</td>
-              <td>{{$row->updated}}</td>
-              <td>
-                
-                <a href="#" class='btn btn-info btn-sm'>UPDATE</a>
-                <a href="#" class ='btn btn-danger btn-sm'>DELETE</a>
-              </td>
-              
-            </tr>
-            @endforeach
-            
-          </tbody>
-        </table>
+
       </div>
       <!-- /#page-content-wrapper -->
     </div>

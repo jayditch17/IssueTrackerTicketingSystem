@@ -19,6 +19,7 @@ Route::get('/', 'TicketsController@index');
 Route::get('admin-home', 'TicketsController@homeAdmin')->name('admin-home');
 Route::get('admin-users', 'TicketsController@adminUser')->name('admin-users');
 Route::get('admin-tickets', 'TicketsController@adminTicket')->name('admin-tickets');
+Route::get('admin-newt', 'TicketsController@newTicket')->name('admin-newt');
 
 Route::get('moderator-home', 'TicketsController@moderatorHome')->name('moderator-home');
 Route::get('moderator-tickets', 'TicketsController@moderatorTicket')->name('moderator-tickets');
