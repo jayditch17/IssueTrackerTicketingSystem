@@ -47,40 +47,47 @@
         <div class="container-fluid">
           <h4 class="mt-4">New Ticket</h4>
 
-          <form action="" method="">
+          <form action="/store" method="post">
+            @csrf
                         <div class="form-group">
                             <label>Project</label>
-                            <select class="form-control">
+                            <select class="form-control" name="project">
                               <option>Select Project</option>
                             </select>
                             <span class="help-block"></span>
                         </div>
-                        <div class="form-group">
+                         <div class="form-group">
                             <label>Tracker</label>
-                            <select class="form-control">
+                            <select class="form-control" name="tracker">
                               <option>Select Tracker</option>
                             </select>
                             <span class="help-block"></span>
                         </div>
                         <div class="form-group">
                             <label>Subject</label>
-                            <input type="text" name="" class="form-control" value="">
+                            <input type="text" name="subject" class="form-control" value="">
                             <span class="help-block"></span>
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="text" name="" class="form-control" value="">
+                            <input type="text" name="email" class="form-control" value="">
                             <span class="help-block"></span>
                         </div>
                         <div class="form-group">
                             <label>Description</label><br>
-                            <textarea class="form-control" name=""  rows="10"></textarea>
+                            <textarea class="form-control" name="description"  rows="10"></textarea>
+                            
+                            
+                        </div>
+                        <div class="form-group">
+                            <label>Assinee</label><br>
+                            <textarea class="form-control" name="assinee"  rows="10"></textarea>
                             
                             
                         </div>
                         <div class="form-group">
                             <label>Status</label>
-                            <select class="form-control">
+                            <select class="form-control" name="status">
                             <option>New</option>
                             <option>In Progress</option>
                             <option>Resolved</option>
@@ -89,7 +96,7 @@
                         </div>
                         <div class="form-group">
                             <label>Priority</label>
-                            <select class="form-control">
+                            <select class="form-control" name="priority">
                             <option>Normal</option>
                             <option></option>
                             <option></option>
@@ -99,7 +106,7 @@
                         
                         <div class="modal-footer">
                               <input type="submit" class="btn btn-primary" value="Submit">
-                        <a href="index.php" class="btn btn-default btn-danger">Cancel</a>
+                        <!-- <a href="index.php" class="btn btn-default btn-danger">Cancel</a> -->
                         </div>
                     </form>
 

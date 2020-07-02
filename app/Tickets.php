@@ -9,4 +9,5 @@ class Tickets extends Model
    protected $fillable =[
    		'id','project', 'tracker', 'status', 'priority', 'subject', 'assignee', 'updated'
    ];
+   public $timestamps=false;
 }

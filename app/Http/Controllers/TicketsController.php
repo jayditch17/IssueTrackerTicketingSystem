@@ -59,4 +59,19 @@ class TicketsController extends Controller
 
     	return view('tickets.subviews.admin.newTicket',['tickets'=>$tickets]);
     }
+
+    public function store(Request $req){
+    	// print_r($req->input());
+    	$ticket = new Tickets;
+    	$ticket->project=$req->project;
+    	$ticket->tracker=$req->tracker;
+    	$ticket->subject=$req->subject;
+    	$ticket->email=$req->email;
+    	$ticket->description=$req->description;
+    	$ticket->status=$req->status;
+    	$ticket->priority=$req->priority;
+    	$ticket->assignee=$req->assignee;
+    	$ticket->save();
+    	
+    }
 }
