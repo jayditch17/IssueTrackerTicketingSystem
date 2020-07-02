@@ -20,3 +20,6 @@ Route::get('admin-home', 'TicketsController@homeAdmin');
 Route::get('admin-users', 'TicketsController@adminUser');
 Route::get('admin-tickets', 'TicketsController@adminTicket');
 
+Route::get('moderator-home', 'TicketsController@moderatorHome');
+Route::get('moderator-tickets', 'TicketsController@moderatorTicket');
+

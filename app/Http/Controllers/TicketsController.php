@@ -33,4 +33,17 @@ class TicketsController extends Controller
 
     	return view('tickets.subviews.admin.adminTicket',['tickets'=>$tickets]);
     }
+
+    public function moderatorTicket(){
+
+    	$tickets = DB::select('SELECT * FROM tickets');
+
+    	return view('tickets.subviews.moderator.moderatorTickets',['tickets'=>$tickets]);
+    }
+    public function moderatorHome(){
+
+    	$tickets = DB::select('SELECT * FROM tickets');
+
+    	return view('tickets.subviews.moderator.home',['tickets'=>$tickets]);
+    }
 }
