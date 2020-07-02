@@ -16,12 +16,12 @@ Route::get('/', 'TicketsController@index');
 // Route::get('/', function () {
 //     return view('tickets/index');
 // });
-Route::get('admin-home', 'TicketsController@homeAdmin');
-Route::get('admin-users', 'TicketsController@adminUser');
-Route::get('admin-tickets', 'TicketsController@adminTicket');
+Route::get('admin-home', 'TicketsController@homeAdmin')->name('admin-home');
+Route::get('admin-users', 'TicketsController@adminUser')->name('admin-users');
+Route::get('admin-tickets', 'TicketsController@adminTicket')->name('admin-tickets');
 
-Route::get('moderator-home', 'TicketsController@moderatorHome');
-Route::get('moderator-tickets', 'TicketsController@moderatorTicket');
+Route::get('moderator-home', 'TicketsController@moderatorHome')->name('moderator-home');
+Route::get('moderator-tickets', 'TicketsController@moderatorTicket')->name('moderator-tickets');
 
-Route::get('user-home', 'TicketsController@userHome');
+Route::get('user-home', 'TicketsController@userHome')->name('user-home');
 

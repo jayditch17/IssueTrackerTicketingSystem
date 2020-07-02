@@ -22,20 +22,6 @@
 
   <div class="d-flex" id="wrapper">
 
-    <!-- Sidebar -->
-   <!-- <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">Issue Tracker</div>
-      <div class="list-group list-group-flush">
-        <a href="#" class="list-group-item list-group-item-action bg-light">New Issue</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">View Tickets</a>
-         <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Status</a> 
-      </div>
-    </div>-->
-    <!-- /#sidebar-wrapper -->
-
     <!-- Page Content -->
     <div id="page-content-wrapper">
 
@@ -49,13 +35,10 @@
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="#">Home</a>
+              <a class="nav-link" href="{{ route('moderator-home') }}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Manage Users</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Manage Tickets</a>
+              <a class="nav-link" href="{{ route('moderator-tickets') }}">Manage Users</a>
             </li>
           </ul>
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
@@ -66,18 +49,6 @@
              <li class="nav-item">
               <a class="nav-link" href="#">Log In</a>
             </li>
-            <!--
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li> -->
           </ul>
         </div>
       </nav>
