@@ -23,3 +23,5 @@ Route::get('admin-tickets', 'TicketsController@adminTicket');
 Route::get('moderator-home', 'TicketsController@moderatorHome');
 Route::get('moderator-tickets', 'TicketsController@moderatorTicket');
 
+Route::get('user-home', 'TicketsController@userHome');
+
