@@ -59,6 +59,18 @@ class TicketsController extends Controller
 
     	return view('tickets.subviews.admin.newTicket',['tickets'=>$tickets]);
     }
+    public function newTicketCo(){
+
+    	$tickets = DB::select('SELECT * FROM tickets');
+
+    	return view('tickets.subviews.admin.newTicket',['tickets'=>$tickets]);
+    }
+    public function newTicketUs(){
+
+    	$tickets = DB::select('SELECT * FROM tickets');
+
+    	return view('tickets.subviews.admin.newTicket',['tickets'=>$tickets]);
+    }
 
     public function store(Request $req){
     	// print_r($req->input());
