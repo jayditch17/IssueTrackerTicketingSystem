@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Manage Users-Admin</title>
+    <title>New Ticket|Moderator</title>
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -21,7 +21,7 @@
           <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <!-- <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin-home') }}">Home</a>
               </li>
@@ -31,7 +31,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="{{ route('admin-tickets') }}">Manage Tickets</a>
               </li>
-            </ul>
+            </ul> -->
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
               
               <li class="nav-item active">
@@ -68,23 +68,23 @@
                             <input type="text" name="subject" class="form-control" value="">
                             <span class="help-block"></span>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Email</label>
                             <input type="text" name="email" class="form-control" value="">
                             <span class="help-block"></span>
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label>Description</label><br>
                             <textarea class="form-control" name="description"  rows="10"></textarea>
                             
                             
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Assinee</label><br>
                             <textarea class="form-control" name="assinee"  rows="10"></textarea>
                             
                             
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label>Status</label>
                             <select class="form-control" name="status">

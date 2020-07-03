@@ -37,17 +37,17 @@
             <li class="nav-item">
               <a class="nav-link" href="{{ route('moderator-home') }}">Home</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="nav-link" href="{{ route('moderator-tickets') }}">Manage Users</a>
-            </li>
+            </li> -->
           </ul>
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             
             <li class="nav-item">
-              <a class="nav-link" href="#">+New Ticket</a>
+              <a class="nav-link" href="{{ route('moderator-newt') }}">+New Ticket</a>
             </li>
              <li class="nav-item">
-              <a class="nav-link" href="#">Log In</a>
+              <a class="nav-link" href="#">Log Out</a>
             </li>
           </ul>
         </div>

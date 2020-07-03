@@ -24,10 +24,11 @@ Route::post('store', 'TicketsController@store');
 
 Route::get('moderator-home', 'TicketsController@moderatorHome')->name('moderator-home');
 Route::get('moderator-tickets', 'TicketsController@moderatorTicket')->name('moderator-tickets');
-Route::get('coordinator-newt', 'TicketsController@newTicketCo')->name('coordinator-newtt');
+Route::get('moderator-newt', 'TicketsController@newTicketCo')->name('moderator-newt');
 Route::get('user-newt', 'TicketsController@newTicketUs')->name('user-newt');
 
 Route::get('user-home', 'TicketsController@userHome')->name('user-home');
+Route::get('ano-newt', 'TicketsController@newTicketAno')->name('ano-newt');
 
 
 

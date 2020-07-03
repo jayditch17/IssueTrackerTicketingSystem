@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Manage Users-Admin</title>
+    <title>New Ticket|Admin</title>
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -68,23 +68,23 @@
                             <input type="text" name="subject" class="form-control" value="">
                             <span class="help-block"></span>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Email</label>
                             <input type="text" name="email" class="form-control" value="">
                             <span class="help-block"></span>
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label>Description</label><br>
                             <textarea class="form-control" name="description"  rows="10"></textarea>
                             
                             
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Assinee</label><br>
                             <textarea class="form-control" name="assinee"  rows="10"></textarea>
                             
                             
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label>Status</label>
                             <select class="form-control" name="status">

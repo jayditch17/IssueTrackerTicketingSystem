@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Manage Users-Admin</title>
+    <title>New Ticket</title>
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -37,9 +37,9 @@
               <li class="nav-item active">
                 <a class="nav-link" href="{{ route('admin-newt') }}">+New Ticket</a>
               </li>
-              <li class="nav-item">
+             <!--  <li class="nav-item">
                 <a class="nav-link" href="#">Log Out</a>
-              </li>
+              </li> -->
 
             </ul>
           </div>
@@ -79,12 +79,12 @@
                             
                             
                         </div>
-                        <div class="form-group">
-                            <label>Assinee</label><br>
-                            <textarea class="form-control" name="assinee"  rows="10"></textarea>
+                        <!-- <div class="form-group">
+                            <label>Assignee</label><br>
+                            <input type="text" name="email" class="form-control" value="">
                             
                             
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <label>Status</label>
                             <select class="form-control" name="status">
