@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Tickets;
 use DB;
+use Socialite;
+use Auth;
+// Exception $e;
 class TicketsController extends Controller
 {
     
@@ -89,5 +92,28 @@ class TicketsController extends Controller
 
     public function redirect(){
         return Socialite::driver('google')->redirect();
+    }
+    public function callback(){
+        try{
+            $googleUser = Socialite::driver('google')->user();
+            $existUser = User::where('email', $googleUser->email)->first();
+
+            if ($existingUser) {
+                # code...
+                Auth::loginUsingId($existingUser->id, true);
+            }else{
+                $user = new User;
+                $user->name = $googleUser->name;
+                $user->email = $googleUser->email;
+                $user->google_id = $googleUser->id;
+                $user->password = md5(rand(1,10000));
+                $user->save();
+                Auth::loginUsingId($user->id, true);
+            }
+            return redirect()->to('/home');
+        }
+        catch(Exception $e){
+            return 'error';
+        }
     }
 }

@@ -34,4 +34,7 @@ Route::get('user-home', 'TicketsController@userHome')->name('user-home');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
+
+ Route::get('/redirect', 'TicketsController@redirect');
+ Route::get('/callback', 'TicketsController@callback');
