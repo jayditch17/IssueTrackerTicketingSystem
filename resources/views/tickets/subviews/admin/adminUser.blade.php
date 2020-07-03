@@ -35,7 +35,7 @@
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
               
               <li class="nav-item">
-                <a class="nav-link" href="#">+New Ticket</a>
+                <a class="nav-link" href="{{ route('admin-newt') }}">+New Ticket</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Log Out</a>
