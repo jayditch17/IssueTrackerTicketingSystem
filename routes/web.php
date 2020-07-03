@@ -31,3 +31,7 @@ Route::get('user-home', 'TicketsController@userHome')->name('user-home');
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -86,4 +86,8 @@ class TicketsController extends Controller
     	$ticket->save();
     	
     }
+
+    public function redirect(){
+        return Socialite::driver('google')->redirect();
+    }
 }
