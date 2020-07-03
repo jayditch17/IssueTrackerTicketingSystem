@@ -52,7 +52,7 @@
               <a class="nav-link" href="#">+New Ticket</a>
             </li>
              <li class="nav-item">
-              <a class="nav-link" href="#">Log In</a>
+              <a class="nav-link" href="{{ url('/redirect') }}">Log In</a>
             </li>
             <!--
             <li class="nav-item dropdown">
