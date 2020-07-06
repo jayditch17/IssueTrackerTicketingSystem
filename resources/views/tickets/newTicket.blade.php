@@ -103,7 +103,19 @@
                           </select>
                             <span class="help-block"></span>
                         </div>
-                        
+                        <div class="form-group row">
+                          <div class="col-md-6 offset-md4">
+                            <div class="g-recaptcha" data-sitekey="{{env('CAPTCHA_KEY')}}">
+                            </div>
+                            @if($errors->has('g-recaptcha-response'))
+                              <span class="invalid-feedback" style="display:block">
+                                <strong>{{$errors->first('g-captcha-response')}}</strong>
+                            @endif
+                        </div>
+                        <!-- <button class="g-recaptcha" 
+        data-sitekey="reCAPTCHA_site_key" 
+        data-callback='onSubmit' 
+        data-action='submit'>Submit</button> -->
                         <div class="modal-footer">
                               <input type="submit" class="btn btn-primary" value="Submit">
                         <!-- <a href="index.php" class="btn btn-default btn-danger">Cancel</a> -->
@@ -117,6 +129,11 @@
     </div>
     <!-- /#wrapper -->
     <!-- Bootstrap core JavaScript -->
+    <script>
+   function onSubmit(token) {
+     document.getElementById("demo-form").submit();
+   }
+ </script>
 
     <script src="{{asset('ckeditor.js') }}"></script>
     <script>
