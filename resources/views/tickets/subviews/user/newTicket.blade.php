@@ -75,16 +75,11 @@
                         </div>
                         <div class="form-group">
                             <label>Description</label><br>
-                            <textarea class="form-control" name="description"  rows="10"></textarea>
+                            <textarea class="form-control" name="description" id="summary-ckeditor" rows="10"></textarea>
                             
                             
                         </div>
-                        <div class="form-group">
-                            <label>Assinee</label><br>
-                            <textarea class="form-control" name="assinee"  rows="10"></textarea>
-                            
-                            
-                        </div>
+                        
                         <div class="form-group">
                             <label>Status</label>
                             <select class="form-control" name="status">
@@ -117,6 +112,12 @@
     </div>
     <!-- /#wrapper -->
     <!-- Bootstrap core JavaScript -->
+    <script src="{{asset('ckeditor/ckeditor.js') }}"></script>
+    <script>
+      CKEDITOR.replace('summary-ckeditor')
+    </script>
+      
+    </script>
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Menu Toggle Script -->

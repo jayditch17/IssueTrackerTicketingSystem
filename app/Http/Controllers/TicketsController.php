@@ -27,10 +27,10 @@ class TicketsController extends Controller
     }
     public function adminUser(){
 
-    	$tickets = DB::select('SELECT * FROM tickets');
-        $user = DB::select('SELECT * FROM users');
-
-    	return view('tickets.subviews.admin.adminUser',['tickets'=>$tickets]);
+    	// $tickets = DB::select('SELECT * FROM tickets');
+        $users = DB::select('SELECT * FROM users');
+        return view('tickets.subviews.admin.adminUser',['users'=>$users]);
+    	// return view('tickets.subviews.admin.adminUser',['tickets'=>$tickets]);
     }
     public function adminTicket(){
 

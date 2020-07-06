@@ -75,7 +75,7 @@
                         </div>
                         <div class="form-group">
                             <label>Description</label><br>
-                            <textarea class="form-control" name="description"  rows="10"></textarea>
+                            <textarea class="form-control" name="description" id="summary-ckeditor"  rows="10"></textarea>
                             
                             
                         </div>
@@ -117,6 +117,12 @@
     </div>
     <!-- /#wrapper -->
     <!-- Bootstrap core JavaScript -->
+
+    <script src="{{asset('ckeditor.js') }}"></script>
+    <script>
+      CKEDITOR.replace('summary-ckeditor')
+    </script>
+
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Menu Toggle Script -->

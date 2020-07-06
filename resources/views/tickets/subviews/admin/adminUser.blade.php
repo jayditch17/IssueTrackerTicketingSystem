@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Manage Users-Admin</title>
+    <title>Manage Users|Admin</title>
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -62,28 +62,25 @@
           <thead class="table-secondary">
             <tr>
               <th>#</th>
-              <th>Project</th>
-              <th>Tracker</th>
-              <th>Status</th>
-              <th>Priority</th>
+              <th>Name</th>
+              <th>Email</th>
+              <!-- <th>Position</th> -->
+<!--               <th>Priority</th>
               <th>Subject</th>
               <th>Assignee</th>
-              <th>Updated</th>
+              <th>Updated</th> -->
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               
-              @foreach($tickets as $row)
+              @foreach($users as $row)
               <td>{{$row->id}}</td>
-              <td>{{$row->project}}</td>
-              <td>{{$row->tracker}}</td>
-              <td>{{$row->status}}</td>
-              <td>{{$row->priority}}</td>
-              <td>{{$row->subject}}</td>
-              <td>{{$row->assignee}}</td>
-              <td>{{$row->updated}}</td>
+              <td>{{$row->name}}</td>
+              <td>{{$row->email}}</td>
+              
+
               <td>
                 
                 <a href="#" class='btn btn-info btn-sm'>UPDATE</a>
