@@ -10,6 +10,8 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
+
+    <script src="https://www.google.com/recaptcha/api.js"></script>
   </head>
   <body>
     <div class="d-flex" id="wrapper">
