@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'TicketsController@index');
+Route::get('/', 'TicketsController@index')->name('/');
 // Route::get('/', function () {
 //     return view('tickets/index');
 // });
@@ -39,7 +39,7 @@ Route::post('site-register', 'TicketsController@siteRegisterPost');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
  Route::get('/redirect', 'TicketsController@redirect');
  Route::get('/callback', 'TicketsController@callback');

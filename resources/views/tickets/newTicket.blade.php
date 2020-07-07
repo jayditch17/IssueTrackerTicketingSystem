@@ -83,7 +83,7 @@
                           </select>
                             <span class="help-block"></span>
                         </div>
-                        <div data-callback="verifyCaptcha" class="g-recaptcha-response">
+                        <div data-callback="verifyCaptcha" class="g-recaptcha-response" required>
                             
                             <div class="col-md-6">
                                 {!! app('captcha')->display() !!}
@@ -96,8 +96,9 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                              <button type="Submit">SUBMIT</button>
-                        <!-- <a href="index.php" class="btn btn-default btn-danger">Cancel</a> -->
+                              
+                        <a href="{{ route('/') }}" class="btn btn-default btn-danger">Cancel</a>
+                        <button type="Submit" class="btn btn-primary">SUBMIT</button>
                         </div>
                     </form>
                     <script>

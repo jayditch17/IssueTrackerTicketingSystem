@@ -96,7 +96,7 @@ class TicketsController extends Controller
     	$ticket->status=$req->status;
     	$ticket->priority=$req->priority;
     	$ticket->assignee=$req->assignee;
-    	$ticket->save();
+    	$ticket->save(); 
     	
     }
 

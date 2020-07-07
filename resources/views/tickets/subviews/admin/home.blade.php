@@ -68,6 +68,7 @@
               <th>Priority</th>
               <th>Subject</th>
               <th>Assignee</th>
+              <th>Email</th>
               <th>Updated</th>
               <th>Action</th>
             </tr>
@@ -83,6 +84,7 @@
               <td>{{$row->priority}}</td>
               <td>{{$row->subject}}</td>
               <td>{{$row->assignee}}</td>
+              <td>{{$row->email}}</td>
               <td>{{$row->updated}}</td>
               <td>
                 
