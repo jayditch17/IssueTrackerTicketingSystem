@@ -22,19 +22,6 @@
 
   <div class="d-flex" id="wrapper">
 
-    <!-- Sidebar -->
-   <!-- <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">Issue Tracker</div>
-      <div class="list-group list-group-flush">
-        <a href="#" class="list-group-item list-group-item-action bg-light">New Issue</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">View Tickets</a>
-         <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Status</a> 
-      </div>
-    </div>-->
-    <!-- /#sidebar-wrapper -->
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
@@ -54,18 +41,6 @@
              <li class="nav-item">
               <a class="nav-link" href="{{ url('/redirect') }}">Log In</a>
             </li>
-            <!--
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li> -->
           </ul>
         </div>
       </nav>
@@ -99,9 +74,9 @@
             <td>{{$row->subject}}</td>
             <td>{{$row->assignee}}</td>
             <td>{{$row->updated}}</td>
-          @endforeach
-          </tr>
           
+          </tr>
+          @endforeach
         </tbody>
       </table>
     </div>

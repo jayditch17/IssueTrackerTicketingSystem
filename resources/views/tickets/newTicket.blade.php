@@ -25,35 +25,15 @@
           <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin-home') }}">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin-users') }}">Manage Users</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin-tickets') }}">Manage Tickets</a>
-              </li>
-            </ul> -->
-            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-              
-              <li class="nav-item active">
-                <a class="nav-link" href="{{ route('admin-newt') }}">+New Ticket</a>
-              </li>
-             <!--  <li class="nav-item">
-                <a class="nav-link" href="#">Log Out</a>
-              </li> -->
-
             </ul>
           </div>
         </nav>
         <div class="container-fluid">
           <h4 class="mt-4">New Ticket</h4>
 
-          <form action="/store" method="post">
+          <form action="/store" method="post" >
             @csrf
-                        <div class="form-group">
+                        <div class="form-group" onsubmit="return submitUserForm();">
                             <label>Project</label>
                             <select class="form-control" name="project">
                               <option>Select Project</option>
@@ -69,26 +49,22 @@
                         </div>
                         <div class="form-group">
                             <label>Subject</label>
-                            <input type="text" name="subject" class="form-control" value="">
+                            <input type="text" name="subject" class="form-control" value="" autocomplete="off">
                             <span class="help-block"></span>
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="text" name="email" class="form-control" value="">
+                            <input type="email" name="email" class="form-control" value="" autocomplete="off">
                             <span class="help-block"></span>
                         </div>
                         <div class="form-group">
                             <label>Description</label><br>
-                            <textarea class="form-control" name="description" id="summary-ckeditor"  rows="10"></textarea>
+                            <textarea class="form-control" name="description" id="summary-ckeditor"  rows="10" autocomplete="off"></textarea>
                             
                             
                         </div>
-                        <!-- <div class="form-group">
-                            <label>Assignee</label><br>
-                            <input type="text" name="email" class="form-control" value="">
                             
-                            
-                        </div> -->
+                        </div> 
                         <div class="form-group">
                             <label>Status</label>
                             <select class="form-control" name="status">
@@ -107,7 +83,7 @@
                           </select>
                             <span class="help-block"></span>
                         </div>
-                        <div data-callback="recaptchaCallback" class="g-recaptcha-response">
+                        <div data-callback="verifyCaptcha" class="g-recaptcha-response">
                             
                             <div class="col-md-6">
                                 {!! app('captcha')->display() !!}
@@ -115,29 +91,29 @@
                                     <span class="help-block">
                                         <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
                                     </span>
+                                    <div id="g-recaptcha-error"></div>
                                 @endif
                             </div>
                         </div>
-
-                        <!-- <div class="form-group row">
-                          <div class="col-md-6 offset-md4">
-                            <div class="g-recaptcha" data-sitekey="{{env('CAPTCHA_KEY')}}">
-                            </div>
-                            @if($errors->has('g-recaptcha-response'))
-                              <span class="invalid-feedback" style="display:block">
-                                <strong>{{$errors->first('g-recaptcha-response')}}</strong>
-                            @endif
-                        </div>
-                      </div>  -->
-                        <!-- <button class="g-recaptcha" 
-        data-sitekey="reCAPTCHA_site_key" 
-        data-callback='onSubmit' 
-        data-action='submit'>Submit</button> -->
                         <div class="modal-footer">
-                              <button type="submit" class="btn btn-primary" id="submitBtn" disabled> Submit</button>
+                              <button type="Submit">SUBMIT</button>
                         <!-- <a href="index.php" class="btn btn-default btn-danger">Cancel</a> -->
                         </div>
                     </form>
+                    <script>
+                  function submitUserForm() {
+                      var response = grecaptcha.getResponse();
+                      if(response.length == 0) {
+                          document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">This field is required.</span>';
+                          return false;
+                      }
+                      return true;
+                  }
+                   
+                  function verifyCaptcha() {
+                      document.getElementById('g-recaptcha-error').innerHTML = '';
+                  }
+                  </script>
 
         </div>
 
