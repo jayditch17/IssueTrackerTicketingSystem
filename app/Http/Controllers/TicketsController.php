@@ -126,13 +126,35 @@ class TicketsController extends Controller
             return 'error';
         }
     }
-    protected function validator(array $data)
+    // protected function validator(array $data)
+    // {
+    //     return Validator::make($data, [
+    //         'name' => ['required', 'string', 'max:255'],
+    //         'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+    //         'password' => ['required', 'string', 'min:8', 'confirmed'],
+    //         'g-recaptcha-response' => new Captcha(),
+    //     ]);
+    // }
+     public function siteRegister()
     {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'g-recaptcha-response' => new Captcha(),
+        return view('tickets.newTicket');
+    }
+    
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function siteRegisterPost(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|same:password_confirmation',
+            'password_confirmation' => 'required',
+            'g-recaptcha-response' => 'required|captcha',
         ]);
+   
+        print('done');
     }
 }

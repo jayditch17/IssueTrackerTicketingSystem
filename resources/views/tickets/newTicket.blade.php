@@ -10,8 +10,10 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
-
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
+    {!! NoCaptcha::renderJs() !!}
   </head>
   <body>
     <div class="d-flex" id="wrapper">
@@ -105,7 +107,19 @@
                           </select>
                             <span class="help-block"></span>
                         </div>
-                        <div class="form-group row">
+                        <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">Captcha</label>
+                            <div class="col-md-6">
+                                {!! app('captcha')->display() !!}
+                                @if ($errors->has('g-recaptcha-response'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- <div class="form-group row">
                           <div class="col-md-6 offset-md4">
                             <div class="g-recaptcha" data-sitekey="{{env('CAPTCHA_KEY')}}">
                             </div>
@@ -114,6 +128,7 @@
                                 <strong>{{$errors->first('g-recaptcha-response')}}</strong>
                             @endif
                         </div>
+                      </div>  -->
                         <!-- <button class="g-recaptcha" 
         data-sitekey="reCAPTCHA_site_key" 
         data-callback='onSubmit' 

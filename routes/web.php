@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,9 @@ Route::get('user-newt', 'TicketsController@newTicketUs')->name('user-newt');
 
 Route::get('user-home', 'TicketsController@userHome')->name('user-home');
 Route::get('ano-newt', 'TicketsController@newTicketAno')->name('ano-newt');
+
+Route::get('site-register', 'TicketsController@siteRegister');
+Route::post('site-register', 'TicketsController@siteRegisterPost');
 
 
 
