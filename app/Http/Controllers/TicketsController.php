@@ -157,4 +157,43 @@ class TicketsController extends Controller
    
         print('done');
     }
+
+    
+    public function view(){
+        /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    }
+    public function edit($id){
+       
+       $tickets = DB::select('SELECT * FROM tickets where id = ?',[$id]);
+       return view('tickets.subviews.admin.edit', ['tickets' => $tickets]);
+    }
+
+    public function update(Request $request, $id){
+        $project=$request->get('project');
+        $tracker=$request->get('tracker');
+        $subject=$request->get('subject');
+        $email=$request->get('email');
+        $description=$request->get('description');
+        $status=$request->get('status');
+        $priority=$request->get('priority');
+        $assignee=$request->get('assignee');
+        $tickets = DB::update('UPDATE tickets set project=?, tracker=?, subject=?, email=?, description=?, status=?, priority=?, assignee=?', [$project, $tracker, $subject, $email, $description, $status, $priority, $assignee, $id]);
+        if ($tickets) {
+            # code...
+            $red = redirect('tickets')->with('success', 'Data updated');
+        }else{
+            $red = redirect('tickets')->with('fail', 'Data not updated');
+        }
+        return $red;
+    }
+
+    public function destroy($id){
+        $tickets = DB::delete('DELETE from tickets wher id=?', [$id]);
+        $red =redirect('tickets.admin.adminTicket');
+     return $red;
+    }
 }

@@ -17,6 +17,7 @@ Route::get('/', 'TicketsController@index')->name('/');
 // Route::get('/', function () {
 //     return view('tickets/index');
 // });
+Route::resource('tickets', 'TicketsController');
 Route::get('admin-home', 'TicketsController@homeAdmin')->name('admin-home');
 Route::get('admin-users', 'TicketsController@adminUser')->name('admin-users');
 Route::get('admin-tickets', 'TicketsController@adminTicket')->name('admin-tickets');

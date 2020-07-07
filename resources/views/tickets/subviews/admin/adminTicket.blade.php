@@ -40,6 +40,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">Log Out</a>
               </li>
+
               <!--
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -86,8 +87,10 @@
               <td>{{$row->updated}}</td>
               <td>
                 
-                <a href="#" class='btn btn-info btn-sm'>UPDATE</a>
-                <a href="#" class ='btn btn-danger btn-sm'>DELETE</a>
+                <form action="{{action('TicketsController@destroy', $row->id)}}" method="post">
+                <!-- <a href="" class='btn btn-info btn-sm'>View</a> -->
+                <a href="{{action('TicketsController@edit', $row->id)}}" class ='btn btn-primary btn-sm'>EDIT</a>
+                <button type="submit" class="btn btn-danger btn-sm">DELETE</button>
               </td>
               
             </tr>
