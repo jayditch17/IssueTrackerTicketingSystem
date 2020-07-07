@@ -35,7 +35,7 @@ Route::get('ano-newt', 'TicketsController@newTicketAno')->name('ano-newt');
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
  Route::get('/redirect', 'TicketsController@redirect');
  Route::get('/callback', 'TicketsController@callback');

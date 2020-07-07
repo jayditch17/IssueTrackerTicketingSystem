@@ -111,7 +111,7 @@
                             </div>
                             @if($errors->has('g-recaptcha-response'))
                               <span class="invalid-feedback" style="display:block">
-                                <strong>{{$errors->first('g-captcha-response')}}</strong>
+                                <strong>{{$errors->first('g-recaptcha-response')}}</strong>
                             @endif
                         </div>
                         <!-- <button class="g-recaptcha" 

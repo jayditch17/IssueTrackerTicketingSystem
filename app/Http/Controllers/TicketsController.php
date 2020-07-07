@@ -7,6 +7,7 @@ use App\Tickets;
 use DB;
 use Socialite;
 use Auth;
+use App\Rules\Captcha;
 // Exception $e;
 class TicketsController extends Controller
 {
@@ -124,5 +125,14 @@ class TicketsController extends Controller
         catch(Exception $e){
             return 'error';
         }
+    }
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'g-recaptcha-response' => new Captcha(),
+        ]);
     }
 }
