@@ -107,8 +107,8 @@
                           </select>
                             <span class="help-block"></span>
                         </div>
-                        <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Captcha</label>
+                        <div data-callback="recaptchaCallback" class="g-recaptcha-response">
+                            
                             <div class="col-md-6">
                                 {!! app('captcha')->display() !!}
                                 @if ($errors->has('g-recaptcha-response'))
@@ -134,7 +134,7 @@
         data-callback='onSubmit' 
         data-action='submit'>Submit</button> -->
                         <div class="modal-footer">
-                              <input type="submit" class="btn btn-primary" value="Submit">
+                              <button type="submit" class="btn btn-primary" id="submitBtn" disabled> Submit</button>
                         <!-- <a href="index.php" class="btn btn-default btn-danger">Cancel</a> -->
                         </div>
                     </form>
@@ -147,9 +147,17 @@
     <!-- /#wrapper -->
     <!-- Bootstrap core JavaScript -->
     <script>
+      function recaptchaCallback() {
+    $('#submitBtn').removeAttr('disabled');
+};
+    </script>
+    <script>
+      
    function onSubmit(token) {
      document.getElementById("demo-form").submit();
    }
+
+
  </script>
 
     <script src="{{asset('ckeditor.js') }}"></script>
