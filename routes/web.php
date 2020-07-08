@@ -56,3 +56,6 @@ Auth::routes();
  Route::get('showUs/{id}', 'TicketsController@showUs');
  Route::get('showAny/{id}', 'TicketsController@showAny');
  Route::delete('delete/{id}', 'TicketsController@destroy');
+
+
+ Route::get('search','TicketsController@search' );

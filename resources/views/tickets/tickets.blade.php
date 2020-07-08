@@ -56,6 +56,17 @@
       <div class="container-fluid">
         <h4 class="mt-4">Tickets</h4>
       </div>
+      <div class="mt-2">
+      <form action="/search" method="get" accept-charset="utf-8">
+        <div class="input-group">
+          <input type="search" name="search" class="form-control">
+          <span class="input-group-prepend">
+          <button type="submit" class="btn btn-primary">Search</button>
+        </span>
+        </div>
+        
+      </form>
+    </div>
 
       <table class="table table-bordered table-striped table-sm">
         <thead class="thead-dark">

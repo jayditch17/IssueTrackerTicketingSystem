@@ -266,4 +266,10 @@ class TicketsController extends Controller
    $tickets = DB::select('SELECT * FROM tickets where id=?', [$id]);
    return view('tickets.show',['tickets'=>$tickets]);
     }
+
+    public function search(Request $req){
+        $search =$req->get('search');
+        $tickets = DB::table('tickets')->where('project', 'like', '%'.$search.'%')->paginate(5);
+        return view('tickets.tickets', ['tickets' => $tickets]);
+    }
 }
