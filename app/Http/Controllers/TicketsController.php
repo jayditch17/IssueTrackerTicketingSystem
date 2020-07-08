@@ -59,6 +59,13 @@ class TicketsController extends Controller
 
     	return view('tickets.subviews.user.home',['tickets'=>$tickets]);
     }
+
+    public function userTicket(){
+
+        $tickets = DB::select('SELECT * FROM tickets');
+
+        return view('tickets.subviews.user.userTickets',['tickets'=>$tickets]);
+    }
     public function newTicket(){
 
     	$tickets = DB::select('SELECT * FROM tickets');

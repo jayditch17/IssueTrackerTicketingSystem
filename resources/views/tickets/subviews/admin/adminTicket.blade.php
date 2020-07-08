@@ -40,19 +40,6 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">Log Out</a>
               </li>
-
-              <!--
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </li> -->
               @csrf
               @method('DELETE')
             </ul>
@@ -91,30 +78,30 @@
                 
                 <form action="{{action('TicketsController@destroy', $row->id)}}" method="post">
                   @csrf
-              @method('DELETE')
-                <!-- <a href="" class='btn btn-info btn-sm'>View</a> -->
-                <a href="{{action('TicketsController@edit', $row->id)}}" class ='btn btn-primary btn-sm'>EDIT</a>
-                <button type="submit" class="btn btn-danger btn-sm">DELETE</button>
-              </td>
+                  @method('DELETE')
+                  <!-- <a href="" class='btn btn-info btn-sm'>View</a> -->
+                  <a href="{{action('TicketsController@edit', $row->id)}}" class ='btn btn-primary btn-sm'>EDIT</a>
+                  <button type="submit" class="btn btn-danger btn-sm">DELETE</button>
+                </td>
+                
+              </tr>
+              @endforeach
               
-            </tr>
-            @endforeach
-            
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+        </div>
+        <!-- /#page-content-wrapper -->
       </div>
-      <!-- /#page-content-wrapper -->
-    </div>
-    <!-- /#wrapper -->
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-    e.preventDefault();
-    $("#wrapper").toggleClass("toggled");
-    });
-    </script>
-  </body>
-</html>
+      <!-- /#wrapper -->
+      <!-- Bootstrap core JavaScript -->
+      <script src="vendor/jquery/jquery.min.js"></script>
+      <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+      <!-- Menu Toggle Script -->
+      <script>
+      $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+      });
+      </script>
+    </body>
+  </html>

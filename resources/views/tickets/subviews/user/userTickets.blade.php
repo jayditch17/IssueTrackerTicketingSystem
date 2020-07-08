@@ -23,17 +23,17 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('moderator-home') }}">Home</a>
+                <a class="nav-link" href="{{ route('user-home') }}">Home</a>
               </li>
               
               <li class="nav-item active">
-                <a class="nav-link" href="{{ route('moderator-tickets') }}">Manage Tickets</a>
+                <a class="nav-link" href="{{ route('user-tickets') }}">Tickets</a>
               </li>
             </ul>
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
               
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('moderator-newt') }} ">+New Ticket</a>
+                <a class="nav-link" href="{{ route('user-newt') }} ">+New Ticket</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">Log Out</a>
@@ -73,14 +73,8 @@
               <td>{{$row->assignee}}</td>
               <td>{{$row->updated}}</td>
               <td>
-                
-                <form action="{{action('TicketsController@destroy', $row->id)}}" method="post">
-                  @csrf
-                  @method('DELETE')
-                  <!-- <a href="" class='btn btn-info btn-sm'>View</a> -->
-                  <a href="{{action('TicketsController@edit', $row->id)}}" class ='btn btn-primary btn-sm'>EDIT</a>
-                  <button type="submit" class="btn btn-danger btn-sm">DELETE</button>
-                </td>
+                <a href="mailto:joe@example.com?subject=feedback" class="btn btn-primary btn-sm">View</a>
+               
                 
               </tr>
               @endforeach

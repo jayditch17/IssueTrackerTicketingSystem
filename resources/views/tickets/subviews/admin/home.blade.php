@@ -40,63 +40,10 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">Log Out</a>
               </li>
-              <!--
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-              </li> -->
             </ul>
           </div>
         </nav>
-        <div class="container-fluid">
-          <h4 class="mt-4">Tickets</h4>
-        </div>
-        <table class="table table-bordered table-striped table-sm">
-          <thead class="table-secondary">
-            <tr>
-              <th>#</th>
-              <th>Project</th>
-              <th>Tracker</th>
-              <th>Status</th>
-              <th>Priority</th>
-              <th>Subject</th>
-              <th>Assignee</th>
-              <th>Email</th>
-              <th>Updated</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              
-              @foreach($tickets as $row)
-              <td>{{$row->id}}</td>
-              <td>{{$row->project}}</td>
-              <td>{{$row->tracker}}</td>
-              <td>{{$row->status}}</td>
-              <td>{{$row->priority}}</td>
-              <td>{{$row->subject}}</td>
-              <td>{{$row->assignee}}</td>
-              <td>{{$row->email}}</td>
-              <td>{{$row->updated}}</td>
-              <td>
-                
-                <a href="#" class='btn btn-info btn-sm'>UPDATE</a>
-                <a href="#" class ='btn btn-danger btn-sm'>DELETE</a>
-              </td>
-              
-            </tr>
-            @endforeach
-            
-          </tbody>
-        </table>
+        
       </div>
       <!-- /#page-content-wrapper -->
     </div>
