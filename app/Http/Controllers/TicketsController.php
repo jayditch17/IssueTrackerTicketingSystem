@@ -19,6 +19,12 @@ class TicketsController extends Controller
 
     	return view('tickets.index',['tickets'=>$tickets]);
     }
+    public function anoTicket(){
+        $tickets = DB::table('tickets')->paginate(5);
+
+
+        return view('tickets.tickets',['tickets'=>$tickets]);
+    }
 
     public function homeAdmin(){
 

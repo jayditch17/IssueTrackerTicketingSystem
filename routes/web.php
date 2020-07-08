@@ -39,6 +39,7 @@ Route::get('ano-newt', 'TicketsController@newTicketAno')->name('ano-newt');
 Route::get('site-register', 'TicketsController@siteRegister');
 Route::post('site-register', 'TicketsController@siteRegisterPost');
 
+Route::get('ano-tickets', 'TicketsController@anoTicket')->name('ano-tickets');
 
 
 

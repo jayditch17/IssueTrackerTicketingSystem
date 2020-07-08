@@ -35,11 +35,11 @@
 
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-              <li class="nav-item active">
+              <li class="nav-item">
                 <a class="nav-link" href="{{ route('/') }}">Home</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('ano-tickets') }}">Tickets</a>
+              <li class="nav-item active">
+                <a class="nav-link" href="{{ route('ano-tickets') }}"> Tickets</a>
               </li>
             </ul>
           <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
@@ -57,8 +57,40 @@
         <h4 class="mt-4">Tickets</h4>
       </div>
 
-     
-     
+      <table class="table table-bordered table-striped table-sm">
+        <thead class="thead-dark">
+          <tr>
+            <th>#</th>
+            <th>Project</th>
+            <th>Tracker</th>
+            <th>Status</th>
+            <th>Priority</th>
+            <th>Subject</th>
+            <th>Assignee</th>
+            <th>Updated</th>
+            <th>View</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            
+            @foreach($tickets as $row)
+            <td>{{$row->id}}</td>
+            <td>{{$row->project}}</td>
+            <td>{{$row->tracker}}</td>
+            <td>{{$row->status}}</td>
+            <td>{{$row->priority}}</td>
+            <td>{{$row->subject}}</td>
+            <td>{{$row->assignee}}</td>
+            <td>{{$row->updated}}</td>
+            <td>
+             <a href="{{action('TicketsController@showAny', $row->id)}}" class='btn btn-info btn-sm'>View</a>
+          
+          </tr>
+          @endforeach
+        </tbody>
+      </table>
+      {{ $tickets->links() }}
     </div>
     <!-- /#page-content-wrapper -->
 
