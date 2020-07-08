@@ -71,15 +71,15 @@
       <table class="table table-bordered table-striped table-sm">
         <thead class="thead-dark">
           <tr>
-            <th>#</th>
-            <th>Project</th>
-            <th>Tracker</th>
-            <th>Status</th>
-            <th>Priority</th>
-            <th>Subject</th>
-            <th>Assignee</th>
-            <th>Updated</th>
-            <th>View</th>
+            <th scope="col">@sortablelink('ID')</th>
+            <th>@sortablelink('Project')</th>
+            <th>@sortablelink('Tracker')</th>
+            <th>@sortablelink('Status')</th>
+            <th>@sortablelink('Priority')</th>
+            <th>@sortablelink('Subject')</th>
+            <th>@sortablelink('Assignee')</th>
+            <th>@sortablelink('Updated')</th>
+            <th>@sortablelink('View')</th>
           </tr>
         </thead>
         <tbody>
