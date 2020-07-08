@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Edit Tickets-Admin</title>
+    <title>Show Ticket</title>
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -22,43 +22,43 @@
         @method('PUT')
         <div class="form-group">
           <label>Project</label>
-          <select class="form-control" name="project" >
+          <select class="form-control" name="project" disabled>
             <option value="{{($row->project)}}">Select Project</option>
           </select>
           <span class="help-block"></span>
         </div>
         <div class="form-group">
           <label>Tracker</label>
-          <select class="form-control" name="tracker">
+          <select class="form-control" name="tracker" disabled>
             <option value="{{($row->tracker)}}">Select Tracker</option>
           </select>
           <span class="help-block"></span>
         </div>
         <div class="form-group">
           <label>Subject</label>
-          <input type="text" name="subject" class="form-control" value="{{($row->subject)}}">
+          <input type="text" name="subject" class="form-control" value="{{($row->subject)}}" disabled>
           <span class="help-block"></span>
         </div>
         <div class="form-group">
           <label>Email</label>
-          <input type="text" name="email" class="form-control" value="{{($row->email)}}">
+          <input type="text" name="email" class="form-control" value="{{($row->email)}}" disabled> 
           <span class="help-block"></span>
         </div>
         <div class="form-group">
           <label>Description</label><br>
-          <textarea class="form-control" name="description"  id="summary-ckeditor" rows="10" value="">{{($row->description)}}</textarea>
+          <textarea class="form-control" name="description"  id="summary-ckeditor" rows="10" value="" disabled>{{($row->description)}}</textarea>
           
           
         </div>
         <div class="form-group">
           <label>Assignee</label><br>
-          <input class="form-control" name="assignee" value="{{($row->assignee)}}">
+          <input class="form-control" name="assignee" value="{{($row->assignee)}}" disabled>
           <span class="help-block"></span>
           
         </div>
         <div class="form-group">
           <label>Status</label>
-          <select class="form-control" name="status">
+          <select class="form-control" name="status" disabled>
             <option value="{{($row->project)}}">New</option>
             <option>In Progress</option>
             <option>Resolved</option>
@@ -67,7 +67,7 @@
         </div>
         <div class="form-group">
           <label>Priority</label>
-          <select class="form-control" name="priority">
+          <select class="form-control" name="priority" disabled>
             <option value="{{($row->project)}}">Normal</option>
             <option></option>
             <option></option>
@@ -76,17 +76,18 @@
         </div>
         
         <div class="modal-footer">
-          <input type="submit" class="btn btn-primary" value="Submit">
-          <!-- <a href="index.php" class="btn btn-default btn-danger">Cancel</a> -->
+          <!-- <input type="submit" class="btn btn-primary" value="Submit"> -->
+         <a href="{{ route('/') }}" class="btn btn-default btn-primary">Back</a>
         </div>
         
       </form>
       @endforeach
     </div>
+  </div>
     <!-- /#wrapper -->
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- Menu Toggle Script -->
   </body>
 </html>

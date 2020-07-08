@@ -11,7 +11,7 @@
     <!-- Custom styles for this template -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
   </head>
-  <body>
+  <body >
     <div class="d-flex" id="wrapper">
       <!-- Page Content -->
       <div id="page-content-wrapper">
@@ -79,7 +79,7 @@
                 <form action="{{action('TicketsController@destroy', $row->id)}}" method="post">
                   @csrf
                   @method('DELETE')
-                  <!-- <a href="" class='btn btn-info btn-sm'>View</a> -->
+                   <a href="{{action('TicketsController@show', $row->id)}}" class='btn btn-info btn-sm'>View</a>
                   <a href="{{action('TicketsController@edit', $row->id)}}" class ='btn btn-primary btn-sm'>EDIT</a>
                   <button type="submit" class="btn btn-danger btn-sm">DELETE</button>
                 </td>

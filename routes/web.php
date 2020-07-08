@@ -50,4 +50,8 @@ Auth::routes();
  Route::get('/callback', 'TicketsController@callback');
 
  Route::get('TicketsController@edit');
+ // Route::resource('view', 'TicketsController@view');
+ Route::get('view/{id}', 'TicketsController@view');
+ Route::get('showUs/{id}', 'TicketsController@showUs');
+ Route::get('showAny/{id}', 'TicketsController@showAny');
  Route::delete('delete/{id}', 'TicketsController@destroy');

@@ -11,7 +11,8 @@
     <!-- Custom styles for this template -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
   </head>
-  <body>
+  <body style='max-width: 50%;
+  margin: auto;'>
     <div class="d-flex" id="wrapper">
       <!-- Page Content -->
       <div id="page-content-wrapper">

@@ -60,6 +60,7 @@
             <th>Subject</th>
             <th>Assignee</th>
             <th>Updated</th>
+            <th>View</th>
           </tr>
         </thead>
         <tbody>
@@ -74,6 +75,8 @@
             <td>{{$row->subject}}</td>
             <td>{{$row->assignee}}</td>
             <td>{{$row->updated}}</td>
+            <td>
+             <a href="{{action('TicketsController@showAny', $row->id)}}" class='btn btn-info btn-sm'>View</a>
           
           </tr>
           @endforeach

@@ -213,13 +213,6 @@ class TicketsController extends Controller
     }
 
     
-    public function view(){
-        /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    }
     public function edit($id){
        
        $tickets = DB::select('SELECT * FROM tickets where id = ?',[$id]);
@@ -249,5 +242,22 @@ class TicketsController extends Controller
         $tickets = DB::delete('DELETE from tickets where id=?', [$id]);
         $red =redirect('admin-tickets');
      return $red;
+    }
+
+    public function show($id){
+   $tickets = DB::select('SELECT * FROM tickets where id=?', [$id]);
+   return view('tickets.subviews.admin.show',['tickets'=>$tickets]);
+    }
+    public function view($id){
+   $tickets = DB::select('SELECT * FROM tickets where id=?', [$id]);
+   return view('tickets.subviews.moderator.show',['tickets'=>$tickets]);
+    }
+    public function showUs($id){
+   $tickets = DB::select('SELECT * FROM tickets where id=?', [$id]);
+   return view('tickets.subviews.user.show',['tickets'=>$tickets]);
+    }
+    public function showAny($id){
+   $tickets = DB::select('SELECT * FROM tickets where id=?', [$id]);
+   return view('tickets.show',['tickets'=>$tickets]);
     }
 }

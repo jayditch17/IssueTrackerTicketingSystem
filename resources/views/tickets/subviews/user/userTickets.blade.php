@@ -73,7 +73,7 @@
               <td>{{$row->assignee}}</td>
               <td>{{$row->updated}}</td>
               <td>
-                <a href="mailto:joe@example.com?subject=feedback" class="btn btn-primary btn-sm">View</a>
+                <a href="{{action('TicketsController@showUs', $row->id)}}" class="btn btn-primary btn-sm">View</a>
                
                 
               </tr>
