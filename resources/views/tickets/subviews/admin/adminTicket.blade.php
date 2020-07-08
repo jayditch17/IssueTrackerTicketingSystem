@@ -89,6 +89,7 @@
               
             </tbody>
           </table>
+          {{ $tickets->links() }}
         </div>
         <!-- /#page-content-wrapper -->
       </div>

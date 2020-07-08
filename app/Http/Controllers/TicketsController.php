@@ -14,7 +14,7 @@ class TicketsController extends Controller
     
     public function index(){
 
-    	$tickets = DB::select('SELECT * FROM tickets');
+    	$tickets = DB::table('tickets')->paginate(5);
 
 
     	return view('tickets.index',['tickets'=>$tickets]);
@@ -35,14 +35,14 @@ class TicketsController extends Controller
     }
     public function adminTicket(){
 
-    	$tickets = DB::select('SELECT * FROM tickets');
+    	$tickets = DB::table('tickets')->paginate(5);
 
     	return view('tickets.subviews.admin.adminTicket',['tickets'=>$tickets]);
     }
 
     public function moderatorTicket(){
 
-    	$tickets = DB::select('SELECT * FROM tickets');
+    	$tickets = DB::table('tickets')->paginate(5);
 
     	return view('tickets.subviews.moderator.moderatorTickets',['tickets'=>$tickets]);
     }
@@ -62,7 +62,8 @@ class TicketsController extends Controller
 
     public function userTicket(){
 
-        $tickets = DB::select('SELECT * FROM tickets');
+        
+        $tickets = DB::table('tickets')->paginate(5);
 
         return view('tickets.subviews.user.userTickets',['tickets'=>$tickets]);
     }
