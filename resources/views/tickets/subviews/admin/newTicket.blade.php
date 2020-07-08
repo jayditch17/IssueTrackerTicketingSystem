@@ -47,7 +47,7 @@
         <div class="container-fluid">
           <h4 class="mt-4">New Ticket</h4>
 
-          <form action="/store" method="post">
+          <form action="/storeAdm" method="post">
             @csrf
                         <div class="form-group">
                             <label>Project</label>
@@ -79,12 +79,10 @@
                             
                             
                         </div>
-                        <!-- <div class="form-group">
-                            <label>Assinee</label><br>
-                            <textarea class="form-control" name="assinee"  rows="10"></textarea>
-                            
-                            
-                        </div> -->
+                        <div class="form-group">
+                            <label>Assignee</label><br>
+                            <input class="form-control" name="assignee"  rows="10">
+
                         <div class="form-group">
                             <label>Status</label>
                             <select class="form-control" name="status">

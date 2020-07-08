@@ -97,7 +97,53 @@ class TicketsController extends Controller
     	$ticket->priority=$req->priority;
     	$ticket->assignee=$req->assignee;
     	$ticket->save(); 
+        return redirect()->to('/');
     	
+    }
+    public function storeUs(Request $req){
+        // print_r($req->input());
+        $ticket = new Tickets;
+        $ticket->project=$req->project;
+        $ticket->tracker=$req->tracker;
+        $ticket->subject=$req->subject;
+        $ticket->email=$req->email;
+        $ticket->description=$req->description;
+        $ticket->status=$req->status;
+        $ticket->priority=$req->priority;
+        $ticket->assignee=$req->assignee;
+        $ticket->save(); 
+        return redirect()->to('/user-home');
+        
+    }
+    public function storeMod(Request $req){
+        // print_r($req->input());
+        $ticket = new Tickets;
+        $ticket->project=$req->project;
+        $ticket->tracker=$req->tracker;
+        $ticket->subject=$req->subject;
+        $ticket->email=$req->email;
+        $ticket->description=$req->description;
+        $ticket->status=$req->status;
+        $ticket->priority=$req->priority;
+        $ticket->assignee=$req->assignee;
+        $ticket->save(); 
+        return redirect()->to('/moderator-home');
+        
+    }
+    public function storeAdm(Request $req){
+        // print_r($req->input());
+        $ticket = new Tickets;
+        $ticket->project=$req->project;
+        $ticket->tracker=$req->tracker;
+        $ticket->subject=$req->subject;
+        $ticket->email=$req->email;
+        $ticket->description=$req->description;
+        $ticket->status=$req->status;
+        $ticket->priority=$req->priority;
+        $ticket->assignee=$req->assignee;
+        $ticket->save(); 
+        return redirect()->to('/admin-home');
+        
     }
 
     public function redirect(){

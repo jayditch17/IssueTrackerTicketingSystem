@@ -47,7 +47,7 @@
         <div class="container-fluid">
           <h4 class="mt-4">New Ticket</h4>
 
-          <form action="/store" method="post">
+          <form action="/storeMod" method="post">
             @csrf
                         <div class="form-group">
                             <label>Project</label>

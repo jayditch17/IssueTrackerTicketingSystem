@@ -23,6 +23,9 @@ Route::get('admin-users', 'TicketsController@adminUser')->name('admin-users');
 Route::get('admin-tickets', 'TicketsController@adminTicket')->name('admin-tickets');
 Route::get('admin-newt', 'TicketsController@newTicket')->name('admin-newt');
 Route::post('store', 'TicketsController@store');
+Route::post('storeAdm', 'TicketsController@storeAdm');
+Route::post('storeUs', 'TicketsController@storeUs');
+Route::post('storeMod', 'TicketsController@storeMod');
 
 Route::get('moderator-home', 'TicketsController@moderatorHome')->name('moderator-home');
 Route::get('moderator-tickets', 'TicketsController@moderatorTicket')->name('moderator-tickets');
