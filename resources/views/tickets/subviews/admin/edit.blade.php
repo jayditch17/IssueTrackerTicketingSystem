@@ -7,9 +7,9 @@
     <meta name="author" content="">
     <title>Edit Tickets-Admin</title>
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Custom styles for this template -->
-    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link href="{{ asset('css/simple-sidebar.css') }}" rel="stylesheet">
   </head>
   <body>
     <div class="d-flex" id="wrapper">
@@ -44,7 +44,7 @@
         </div>
         <div class="form-group">
           <label>Description</label><br>
-          <textarea class="form-control" name="description"  id="summary-ckeditor" rows="10" value="{{($row->description)}}"></textarea>
+          <textarea class="form-control" name="description"  id="summary-ckeditor" rows="10" value="">{{($row->description)}}</textarea>
           
           
         </div>
@@ -53,7 +53,7 @@
           <input class="form-control" name="assignee" value="{{($row->assignee)}}">
           <span class="help-block"></span>
           
-        </div> -->
+        </div>
         <div class="form-group">
           <label>Status</label>
           <select class="form-control" name="status">
@@ -79,6 +79,7 @@
         </div>
         
       </form>
+      @endforeach
     </div>
     <!-- /#wrapper -->
     <!-- Bootstrap core JavaScript -->

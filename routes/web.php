@@ -44,3 +44,6 @@ Auth::routes();
 
  Route::get('/redirect', 'TicketsController@redirect');
  Route::get('/callback', 'TicketsController@callback');
+
+ Route::get('TicketsController@edit');
+ Route::delete('delete/{id}', 'TicketsController@destroy');

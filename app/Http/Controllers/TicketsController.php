@@ -181,19 +181,19 @@ class TicketsController extends Controller
         $status=$request->get('status');
         $priority=$request->get('priority');
         $assignee=$request->get('assignee');
-        $tickets = DB::update('UPDATE tickets set project=?, tracker=?, subject=?, email=?, description=?, status=?, priority=?, assignee=?', [$project, $tracker, $subject, $email, $description, $status, $priority, $assignee, $id]);
+        $tickets = DB::update('UPDATE tickets set project=?, tracker=?, subject=?, email=?, description=?, status=?, priority=?, assignee=? WHERE id=?', [$project, $tracker, $subject, $email, $description, $status, $priority, $assignee, $id]);
         if ($tickets) {
             # code...
-            $red = redirect('tickets')->with('success', 'Data updated');
+            $red = redirect('admin-tickets')->with('success', 'Data updated');
         }else{
-            $red = redirect('tickets')->with('fail', 'Data not updated');
+            $red = redirect('admin-tickets')->with('fail', 'Data not updated');
         }
         return $red;
     }
 
     public function destroy($id){
-        $tickets = DB::delete('DELETE from tickets wher id=?', [$id]);
-        $red =redirect('tickets.admin.adminTicket');
+        $tickets = DB::delete('DELETE from tickets where id=?', [$id]);
+        $red =redirect('admin-tickets');
      return $red;
     }
 }
