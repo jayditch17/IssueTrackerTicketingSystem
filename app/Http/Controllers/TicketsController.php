@@ -171,20 +171,24 @@ class TicketsController extends Controller
         return Socialite::driver('google')->redirect();
     }
     public function handleGoogleCallback() {
+        //$role = DB::select('SELECT * FROM users where role==user');
         try {
             $user = Socialite::driver('google')->user();
             $finduser = User::where('google_id', $user->id)->first();
+            //$user = DB::table('users')->where('role', 'user')->first();
+            //$role = User::where('role'->user);
+
             if ($finduser) {
                 Auth::login($finduser);
                 return redirect('/user-home');
-            } else {
+            }else {
                 $newUser = User::create(['name' => $user->name, 'email' => $user->email, 'google_id' => $user->id]);
                 Auth::login($newUser);
                 return redirect()->back();
             }
         }
         catch(Exception $e) {
-            return redirect('auth/google');
+            return redirect('tickets/');
         }
     }
 
