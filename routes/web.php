@@ -42,13 +42,13 @@ Route::post('site-register', 'TicketsController@siteRegisterPost');
 Route::get('ano-tickets', 'TicketsController@anoTicket')->name('ano-tickets');
 
 
-
+ Route::get('/auth/redirect/{google}', 'TicketsController@redirect');
+ Route::get('googlelogin/callback/google', 'TicketsController@callback');
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
 
- Route::get('/redirect', 'TicketsController@redirect');
- Route::get('/callback', 'TicketsController@callback');
+
 
  Route::get('TicketsController@edit');
  // Route::resource('view', 'TicketsController@view');

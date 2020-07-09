@@ -163,28 +163,43 @@ class TicketsController extends Controller
     public function redirect(){
         return Socialite::driver('google')->redirect();
     }
-    public function callback(){
-        try{
-            $googleUser = Socialite::driver('google')->user();
-            $existUser = User::where('email', $googleUser->email)->first();
-
-            if ($existingUser) {
-                # code...
-                Auth::loginUsingId($existingUser->id, true);
-            }else{
-                $user = new User;
-                $user->name = $googleUser->name;
-                $user->email = $googleUser->email;
-                $user->google_id = $googleUser->id;
-                $user->password = md5(rand(1,10000));
-                $user->save();
-                Auth::loginUsingId($user->id, true);
-            }
+    public function callback($provider){
+            $getInfo = Socialite::driver('google')->user();
+            $user = $this->createUser($getInfo,$provider);
+            auth()->login($user);
             return redirect()->to('/home');
+
+        //     if ($existingUser) {
+        //         # code...
+        //         Auth::loginUsingId($existingUser->id, true);
+        //         return redirect()->to('/user-home');
+        //     }else{
+        //         $user = new User;
+        //         $user->name = $googleUser->name;
+        //         $user->email = $googleUser->email;
+        //         $user->google_id = $googleUser->id;
+        //         $user->password = md5(rand(1,10000));
+        //         $user->save();
+        //         Auth::loginUsingId($user->id, true);
+        //     }
+        //     return redirect()->to('/home');
+        // }
+        // catch(Exception $e){
+        //     return 'error';
+        // }
+    }
+
+    function createUser($getInfo, $provider){
+        $user = User::where('provider_id', $getInfo->id)->first();
+        if (!$user) {
+            $user = User::create([
+                'name' => $getInfo->name,
+                'email' => $getInfo->email,
+                'provider' => $provider,
+                'provider_id' => $getInfo->id
+            ]);
         }
-        catch(Exception $e){
-            return 'error';
-        }
+        return $user;
     }
     // protected function validator(array $data)
     // {
@@ -270,6 +285,10 @@ class TicketsController extends Controller
     public function search(Request $req){
         $search =$req->get('search');
         $tickets = DB::table('tickets')->where('project', 'like', '%'.$search.'%')->paginate(5);
-        return view('tickets.tickets', ['tickets' => $tickets]);
+        if($tickets){
+        return view('tickets.index', ['tickets' => $tickets]);
+    }else{
+        print('ticket not found');
+    }
     }
 }
