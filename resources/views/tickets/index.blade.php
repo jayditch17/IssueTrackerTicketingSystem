@@ -47,7 +47,7 @@
               <a class="nav-link" href="{{ route('ano-newt') }}">+New Ticket</a>
             </li>
              <li class="nav-item">
-              <a class="nav-link" href="{{ url('/auth/redirect/google') }}">Log In</a>
+              <a class="nav-link" href="{{ url('/redirect') }}">Log In</a>
             </li>
           </ul>
         </div>

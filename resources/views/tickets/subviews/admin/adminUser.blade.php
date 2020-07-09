@@ -38,7 +38,7 @@
                 <a class="nav-link" href="{{ route('admin-newt') }}">+New Ticket</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Log Out</a>
+                <a class="nav-link" href="{{ route('logout') }}">Log Out</a>
               </li>
               <!--
               <li class="nav-item dropdown">
@@ -64,11 +64,7 @@
               <th>#</th>
               <th>Name</th>
               <th>Email</th>
-              <!-- <th>Position</th> -->
-<!--               <th>Priority</th>
-              <th>Subject</th>
-              <th>Assignee</th>
-              <th>Updated</th> -->
+              <th>Role</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -78,7 +74,9 @@
               @foreach($users as $row)
               <td>{{$row->id}}</td>
               <td>{{$row->name}}</td>
+
               <td>{{$row->email}}</td>
+              <td>{{$row->role}}</td>
               
 
               <td>

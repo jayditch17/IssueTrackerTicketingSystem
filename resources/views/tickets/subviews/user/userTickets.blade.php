@@ -36,7 +36,7 @@
                 <a class="nav-link" href="{{ route('user-newt') }} ">+New Ticket</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Log Out</a>
+                <a class="nav-link" href="{{ route('logout') }}">Log Out</a>
               </li>
               @csrf
               @method('DELETE')

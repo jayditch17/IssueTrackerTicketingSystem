@@ -40,10 +40,10 @@ Route::get('site-register', 'TicketsController@siteRegister');
 Route::post('site-register', 'TicketsController@siteRegisterPost');
 
 Route::get('ano-tickets', 'TicketsController@anoTicket')->name('ano-tickets');
+Route::get('logout', 'TicketsController@logout')->name('logout');
 
-
- Route::get('/auth/redirect/{google}', 'TicketsController@redirect');
- Route::get('googlelogin/callback/google', 'TicketsController@callback');
+ Route::get('/redirect', 'TicketsController@redirectToGoogle');
+ Route::get('/callback/google', 'TicketsController@handleGoogleCallback');
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
