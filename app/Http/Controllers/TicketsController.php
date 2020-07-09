@@ -174,6 +174,7 @@ class TicketsController extends Controller
         //$role = DB::select('SELECT * FROM users where role==user');
         try {
             $user = Socialite::driver('google')->user();
+            $role = DB::select('SELECT * FROM users');
             $finduser = User::where('google_id', $user->id)->first();
             //$user = DB::table('users')->where('role', 'user')->first();
             //$role = User::where('role'->user);
@@ -328,4 +329,31 @@ class TicketsController extends Controller
         print('ticket not found');
     }
     }
+ //$protected $redirectTo = RouteServiceProvider::HOME;
+    // public function redirectTo(){
+    //     switch (Auth::user()->role) {
+    //         case 1:
+    //             # code...
+    //             $this->redirectTo = '/admin';
+    //             return $this->redirectTo;   
+    //             break;
+    //         case 2:
+    //             # code...
+    //             $this->redirectTo = '/moderator';
+    //             return $this->redirectTo;   
+    //             break;
+    //         case 3:
+    //             # code...
+    //             $this->redirectTo = '/user';
+    //             return $this->redirectTo;   
+    //             break;
+            
+    //         default:
+    //             # code...
+
+    //             $this->redirectTo='/login';
+    //             return $this->redirectTo;
+    //             break;
+    //     }
+    // }
 }

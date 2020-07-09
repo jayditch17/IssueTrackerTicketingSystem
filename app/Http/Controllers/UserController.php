@@ -6,5 +6,7 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    //
+    public function index(){
+    	view('tickets.subviews.user.home');
+    }
 }

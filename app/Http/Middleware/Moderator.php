@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
-
+use Auth;
 class Moderator
 {
     /**
@@ -15,6 +15,24 @@ class Moderator
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        if (!Auth::check()) {
+            # code...
+            return redirect()->route('login');
+        }
+        //admin
+        if (Auth::user()->role == 1) {
+            # code...
+            return $next($request)->Route('admin');
+        }
+        //moderator
+        if (Auth::user()->role == 2) {
+            # code...
+            return $next($request);
+        }
+        //user
+        if (Auth::user()->role == 3) {
+            # code...
+            return $next($request)->Route('user');
+        }
     }
 }

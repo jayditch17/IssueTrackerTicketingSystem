@@ -61,20 +61,23 @@
 
       <!--Body-->
       <div class="modal-body">
+        <form method="POST" action="/redirectTo">
+            @csrf
         <div class="md-form">
           
           <label>Email</label>
-          <input type="text" id="form3" class="form-control validate">
+          <input type="text" id="email" name="email" class="form-control validate">
           
         </div>
 
         <div class="md-form">
           <label data-error="wrong" data-success="right" for="form2">Password</label>
-          <input type="email" id="form2" class="form-control validate">
+          <input type="password" id="password" name="password" class="form-control validate">
           
         </div><br>
-         <a type="button" class="btn btn-success btn-block">Log In</a>
+         <button type="submit" class="btn btn-success btn-block">{{ __('Login') }}</button>
       </div>
+    </form>
 
       <!--Footer-->
       <div class="modal-footer justify-content-center">

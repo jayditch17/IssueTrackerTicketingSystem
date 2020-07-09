@@ -46,8 +46,11 @@ Route::get('logout', 'TicketsController@logout')->name('logout');
  Route::get('/callback/google', 'TicketsController@handleGoogleCallback');
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin', 'AdminController@index')->name('admin')->middleware('admin');
+Route::get('/moderator', 'ModeratorController@index')->name('moderator')->middleware('moderator');
+Route::get('/user', 'UserController@index')->name('user')->middleware('user');
 
 
  Route::get('TicketsController@edit');
@@ -59,3 +62,9 @@ Auth::routes();
 
 
  Route::get('search','TicketsController@search' );
+
+
+Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('/admin/users', 'Admin\UserController', ['except' => ['show', 'create', 'store']]);
