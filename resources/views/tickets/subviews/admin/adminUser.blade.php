@@ -71,17 +71,17 @@
           <tbody>
             <tr>
               
-              @foreach($users as $row)
-              <td>{{$row->id}}</td>
-              <td>{{$row->name}}</td>
+              @foreach($users as $user)
+              <td>{{$user->id}}</td>
+              <td>{{$user->name}}</td>
 
-              <td>{{$row->email}}</td>
-              <td>{{$row->role}}</td>
+              <td>{{$user->email}}</td>
+              <td>{{implode(', ', $user->roles()->get()->pluck('name')->toArray()) }}</td>
               
 
               <td>
                 
-                <a href="#" class='btn btn-info btn-sm'>UPDATE</a>
+                <a href="{{route('admin.users.edit', $user->id)}}" class='btn btn-info btn-sm'>UPDATE</a>
                 <a href="#" class ='btn btn-danger btn-sm'>DELETE</a>
               </td>
               

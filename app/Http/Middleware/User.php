@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Auth;
+
 class User
 {
     /**
@@ -13,26 +13,12 @@ class User
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+     public function handle($request, Closure $next)
     {
-        if (!Auth::check()) {
-            # code...
-            return redirect()->route('login');
+        if ($request->user() && $request->user()->type != 'user')
+        {
+            return new Response(view('unauthorized')->with('role', 'USER'));
         }
-        //admin
-        if (Auth::user()->role == 1) {
-            # code...
-            return $next($request)->Route('admin');
-        }
-        //moderator
-        if (Auth::user()->role == 2) {
-            # code...
-            return $next($request)->Route('moderator');
-        }
-        //user
-        if (Auth::user()->role == 3) {
-            # code...
-            return $next($request);
-        }
+        return $next($request);
     }
 }

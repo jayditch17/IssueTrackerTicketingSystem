@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::post('/', 'TicketsController@index')->name('/');
 Route::get('/', 'TicketsController@index')->name('/');
 // Route::get('/', function () {
 //     return view('tickets/index');
@@ -47,10 +48,10 @@ Route::get('logout', 'TicketsController@logout')->name('logout');
 Auth::routes();
 
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/admin', 'AdminController@index')->name('admin')->middleware('admin');
-Route::get('/moderator', 'ModeratorController@index')->name('moderator')->middleware('moderator');
-Route::get('/user', 'UserController@index')->name('user')->middleware('user');
+// Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/admin', 'AdminController@index')->name('admin')->middleware('admin');
+// Route::get('/moderator', 'ModeratorController@index')->name('moderator')->middleware('moderator');
+// Route::get('/user', 'UserController@index')->name('user')->middleware('user');
 
 
  Route::get('TicketsController@edit');
@@ -66,5 +67,8 @@ Route::get('/user', 'UserController@index')->name('user')->middleware('user');
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
-Route::resource('/admin/users', 'Admin\UserController', ['except' => ['show', 'create', 'store']]);
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
+    Route::resource('/users', 'UsersController', ['except' => ['show', 'create', 'store']]);
+});

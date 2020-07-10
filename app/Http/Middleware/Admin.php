@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Auth;
+use Illuminate\Http\Response;
 class Admin
 {
     /**
@@ -13,27 +13,12 @@ class Admin
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+     public function handle($request, Closure $next)
     {
-        if (!Auth::check()) {
-            # code...
-            return redirect()->route('login');
+        if ($request->user() && $request->user()->type != 'admin')
+        {
+            return new Response(view('unauthorized')->with('role', 'ADMIN'));
         }
-        //admin
-        if (Auth::user()->role == 1) {
-            # code...
-            return $next($request);
-        }
-        //moderator
-        if (Auth::user()->role == 2) {
-            # code...
-            return $next($request)->Route('moderator');
-        }
-        //user
-        if (Auth::user()->role == 3) {
-            # code...
-            return $next($request)->Route('user');
-        }
-        
+        return $next($request);
     }
 }

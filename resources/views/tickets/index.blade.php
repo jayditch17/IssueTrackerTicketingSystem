@@ -61,7 +61,7 @@
 
       <!--Body-->
       <div class="modal-body">
-        <form method="POST" action="/redirectTo">
+        <form method="POST" action="{{ route('login') }}">
             @csrf
         <div class="md-form">
           
@@ -75,7 +75,7 @@
           <input type="password" id="password" name="password" class="form-control validate">
           
         </div><br>
-         <button type="submit" class="btn btn-success btn-block">{{ __('Login') }}</button>
+         <button type="submit" class="btn btn-success btn-block" name="signin">{{ __('Login') }}</button>
       </div>
     </form>
 
@@ -153,3 +153,30 @@
     </script>
   </body>
 </html>
+
+<?php
+
+//$conn = mysqli_connect("localhost","root","","tickets_db");
+
+// if (isset($_POST["signin"])) {
+//   # code...
+//   $email = $_POST["email"];
+//   $password = $_POST["password"];
+//   $query = "SELECT * FROM users WHERE email='$email' OR password='$password'";
+
+//   $result = mysqli_query($conn, $query);
+//   if (mysqli_num_rows($result) > 0) {
+//     # code...
+//     while ($row = mysqli_fetch_assoc($result)) {
+//       # code...
+//       if (($row["role"] == "moderator")) {
+//        return redirect('/moderator-home');
+//       }else if (($row["role"] == "admin")) {
+//        print('admin');
+//       }else{
+//         print('failed');
+//       }
+//     }
+// }
+// }
+?>

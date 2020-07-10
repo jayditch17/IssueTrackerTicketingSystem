@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Auth;
+
 class Moderator
 {
     /**
@@ -13,26 +13,12 @@ class Moderator
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+     public function handle($request, Closure $next)
     {
-        if (!Auth::check()) {
-            # code...
-            return redirect()->route('login');
+        if ($request->user() && $request->user()->type != 'moderator')
+        {
+            return new Response(view('unauthorized')->with('role', 'MODERATOR'));
         }
-        //admin
-        if (Auth::user()->role == 1) {
-            # code...
-            return $next($request)->Route('admin');
-        }
-        //moderator
-        if (Auth::user()->role == 2) {
-            # code...
-            return $next($request);
-        }
-        //user
-        if (Auth::user()->role == 3) {
-            # code...
-            return $next($request)->Route('user');
-        }
+        return $next($request);
     }
 }

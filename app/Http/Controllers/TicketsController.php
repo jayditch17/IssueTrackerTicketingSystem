@@ -176,8 +176,6 @@ class TicketsController extends Controller
             $user = Socialite::driver('google')->user();
             $role = DB::select('SELECT * FROM users');
             $finduser = User::where('google_id', $user->id)->first();
-            //$user = DB::table('users')->where('role', 'user')->first();
-            //$role = User::where('role'->user);
 
             if ($finduser) {
                 Auth::login($finduser);
