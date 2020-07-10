@@ -21,6 +21,7 @@ Route::get('/', 'TicketsController@index')->name('/');
 Route::resource('tickets', 'TicketsController');
 Route::get('admin-home', 'TicketsController@homeAdmin')->name('admin-home');
 Route::get('admin-users', 'TicketsController@adminUser')->name('admin-users');
+//Route::get('admin-users', 'Admin\UsersController@update')->name('admin-users');
 Route::get('admin-tickets', 'TicketsController@adminTicket')->name('admin-tickets');
 Route::get('admin-newt', 'TicketsController@newTicket')->name('admin-newt');
 Route::post('store', 'TicketsController@store');
@@ -67,8 +68,9 @@ Auth::routes();
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
-Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
-    Route::resource('/users', 'UsersController', ['except' => ['show', 'create', 'store']]);
+
+
+Route::namespace('Admin')->prefix('admin')->name('tickets.subviews.')->group(function(){
+    Route::resource('/admin', 'UsersController');
 });

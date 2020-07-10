@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use App\Role;
 use Illuminate\Http\Request;
+use DB;
 
 class UsersController extends Controller
 {
@@ -17,9 +18,14 @@ class UsersController extends Controller
     public function __construct(){
         $this->middleware('auth');
     }
-    public function index()
+    public function adminUser()
     {
-        return view('admin.users.index');
+        $users = DB::select('SELECT * FROM tickets');
+
+
+       // return view('tickets.index',);
+        return view('tickets.subviews.admin.adminUser', ['tickets'=>$users]);
+
     }
 
 
@@ -51,7 +57,8 @@ class UsersController extends Controller
     {
         $user->roles()->sync($request->roles);
 
-        return view()->route('tickets.subviews.admin.adminUser');
+        return view('tickets.subviews.admin.adminUser');
+
     }
 
     /**
