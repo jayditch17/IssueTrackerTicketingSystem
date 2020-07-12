@@ -11,6 +11,6 @@ class Tickets extends Model
    ];
    public $timestamps=false;
     protected $user =[
-    		'id','name', 'email'
+    		'name', 'email', 'password', 'google_id'
     ];
 }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+//use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Tickets;
 use App\User;
@@ -170,20 +172,20 @@ class TicketsController extends Controller
     public function redirectToGoogle() {
         return Socialite::driver('google')->redirect();
     }
-    public function handleGoogleCallback() {
+    public function handleGoogleCallback() { 
         //$role = DB::select('SELECT * FROM users where role==user');
         try {
             $user = Socialite::driver('google')->user();
-            $role = DB::select('SELECT * FROM users');
+            //$role = DB::select('SELECT * FROM users');
             $finduser = User::where('google_id', $user->id)->first();
 
             if ($finduser) {
                 Auth::login($finduser);
                 return redirect('/user-home');
             }else {
-                $newUser = User::create(['name' => $user->name, 'email' => $user->email, 'google_id' => $user->id]);
+                $newUser = User::create(['name' => $user->name, 'email' => $user->email, 'password'=>$user->password, 'google_id' => $user->id]);
                 Auth::login($newUser);
-                return redirect()->back();
+                return redirect('/user-home');
             }
         }
         catch(Exception $e) {

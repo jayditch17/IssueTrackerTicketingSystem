@@ -37,7 +37,7 @@
               <li class="nav-item">
                 <!-- <a class="dropdown-item" href="{{ url('/redirect') }}">Login with Google</a> -->
                 <div class="text-center">
-  <a href="" class="nav-link" data-toggle="modal" data-target="#orangeModalSubscription">Log In</a>
+  <a href="{{ route('login') }}" class="nav-link" >Log In</a>
 </div>
               </li>
             </ul>
@@ -46,21 +46,21 @@
         <div class="container-fluid">
           <h4 class="mt-4">Tickets</h4>
         </div>
-        <div class="modal fade" id="orangeModalSubscription" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+ <!--        <div class="modal fade" id="orangeModalSubscription" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <div class="modal-dialog modal-notify modal-warning" role="document">
-    <!--Content-->
+   
     <div class="modal-content">
-      <!--Header-->
+
       <div class="modal-header text-center">
         <h4 class="modal-title white-text w-100 font-weight-bold py-2">Log In With Existing Account</h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true" class="white-text">&times;</span>
         </button>
-      </div>
+      </div> -->
 
       <!--Body-->
-      <div class="modal-body">
+      <!-- <div class="modal-body">
         <form method="POST" action="{{ route('login') }}">
             @csrf
         <div class="md-form">
@@ -76,15 +76,15 @@
           
         </div><br>
          <button type="submit" class="btn btn-success btn-block" name="signin">{{ __('Login') }}</button>
-      </div>
+      </div> -->
     </form>
 
       <!--Footer-->
-      <div class="modal-footer justify-content-center">
+      <!-- <div class="modal-footer justify-content-center">
         <h5 class="modal-title white-text w-100 font-weight-bold py-2 text-center">OR</h5>
         <a href="{{ url('/redirect') }}" class="btn btn-danger btn-block"><i class="fa fa-google"></i> Sign in with <b>Google</b></a>
        
-      </div>
+      </div> -->
     </div>
     <!--/.Content-->
   </div>
