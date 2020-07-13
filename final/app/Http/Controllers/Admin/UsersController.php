@@ -80,7 +80,7 @@ class UsersController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->save();
-        return redirect()->route('admin.users.index');
+        return redirect()->route('admin-users');
     }
 
     /**
@@ -94,6 +94,6 @@ class UsersController extends Controller
         $user->roles()->detach();
         $user->delete();
 
-        return redirect()->route('admin.users.index');
+        return redirect()->route('admin-users');
     }
 }

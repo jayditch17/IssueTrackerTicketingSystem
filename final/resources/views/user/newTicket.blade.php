@@ -66,6 +66,12 @@
                             <input type="text" name="subject" class="form-control" value="">
                             <span class="help-block"></span>
                         </div>
+
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="text" name="email" class="form-control" value="{{ Auth::user()->email }}" disabled>{{ Auth::user()->email }}
+                            <span class="help-block"></span>
+                        </div> 
                         
                         <div class="form-group">
                             <label>Description</label><br>
@@ -73,6 +79,14 @@
                             
                             
                         </div>
+                        <div class="form-group">
+                            <label>Assignee</label><br>
+                            <select name="assignee" class="form-control">
+                              @foreach($tickets as $user)
+                               <option value="{{ $user->name}}">{{ $user->name}}</option>
+                              @endforeach
+                          </select>
+                          </div>
                         
                         <div class="form-group">
                             <label>Status</label>

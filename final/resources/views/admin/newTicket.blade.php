@@ -11,8 +11,8 @@
     <!-- Custom styles for this template -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
   </head>
-  <body style='max-width: 50%;
-  margin: auto;'>
+
+  <body>
     <div class="d-flex" id="wrapper">
       <!-- Page Content -->
       <div id="page-content-wrapper">
@@ -24,15 +24,10 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
               <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin-home') }}">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin-users') }}">Manage Users</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{{ route('admin-tickets') }}">Manage Tickets</a>
+                <label class="text-light">Create New Ticket</label>
               </li>
             </ul>
+            
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
               
               <li class="nav-item active">
@@ -45,22 +40,25 @@
             </ul>
           </div>
         </nav>
-        <div class="container-fluid">
+<!--         <div class="container-fluid">
           <h4 class="mt-4">New Ticket</h4>
+        </div> -->
 
-          <form action="/storeAdm" method="post">
+          <form action="/storeAdm" method="post" style='max-width: 50%;
+  margin: auto;'>
             @csrf
                         <div class="form-group">
                             <label>Project</label>
-                            <select class="form-control" name="project">
-                              <option>Select Project</option>
-                            </select>
+                            
+                            <input type="text" name="project" class="form-control" value="" autocomplete="off">
                             <span class="help-block"></span>
                         </div>
                          <div class="form-group">
-                            <label>Tracker</label>
+                            <label>Tracker</label> 
                             <select class="form-control" name="tracker">
-                              <option>Select Tracker</option>
+                              <option selected disabled>Select Tracker</option>
+                              <option>Bug</option>
+                              <option>Feature</option>
                             </select>
                             <span class="help-block"></span>
                         </div>
@@ -69,25 +67,28 @@
                             <input type="text" name="subject" class="form-control" value="">
                             <span class="help-block"></span>
                         </div>
-                        <!-- <div class="form-group">
+                        <div class="form-group">
                             <label>Email</label>
-                            <input type="text" name="email" class="form-control" value="">
+                            <input type="text" name="email" class="form-control" value="{{ Auth::user()->email }}">
                             <span class="help-block"></span>
-                        </div> -->
+                        </div> 
                         <div class="form-group">
                             <label>Description</label><br>
-                            <textarea class="form-control" name="description"  id="summary-ckeditor" rows="10"></textarea>
-                            
-                            
+                            <textarea class="form-control" name="description"  id="summary-ckeditor" rows="10" autocomplete="off"></textarea>
                         </div>
                         <div class="form-group">
-                            <label>Assignee</label><br>
-                            <input class="form-control" name="assignee"  rows="10">
-
+                          <select name="assignee" class="form-control">
+                              @foreach($tickets as $user)
+                               <option value="{{ $user->name}}">{{ $user->name}}</option>
+                              @endforeach
+                          </select>
+                          </div>
                         <div class="form-group">
                             <label>Status</label>
                             <select class="form-control" name="status">
+                              <option>Closed</option>
                             <option>New</option>
+                            <option>Assigned</option>
                             <option>In Progress</option>
                             <option>Resolved</option>
                           </select>
@@ -96,16 +97,17 @@
                         <div class="form-group">
                             <label>Priority</label>
                             <select class="form-control" name="priority">
+                            <option>Low</option>
                             <option>Normal</option>
-                            <option></option>
-                            <option></option>
+                            <option>HIgh</option>
                           </select>
                             <span class="help-block"></span>
                         </div>
                         
                         <div class="modal-footer">
+                          <a href="{{route ('admin-tickets')}}" class="btn btn-default btn-danger">Cancel</a>
                               <input type="submit" class="btn btn-primary" value="Submit">
-                        <!-- <a href="index.php" class="btn btn-default btn-danger">Cancel</a> -->
+                       
                         </div>
                     </form>
 
@@ -117,7 +119,12 @@
     <!-- /#wrapper -->
     <script src="{{asset('ckeditor.js') }}"></script>
     <script>
-      CKEDITOR.replace('summary-ckeditor')
+      
+      CKEDITOR.replace('summary-ckeditor',{
+        filebrowserUploadUrl:"{{asset('/demo/upload_ckeditor')}}",
+        filebrowserBrowseUrl:"{{asset('/demo/file_browser')}}"
+      });
+    
     </script>
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>

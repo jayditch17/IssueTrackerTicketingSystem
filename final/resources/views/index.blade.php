@@ -9,6 +9,7 @@
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Custom styles for this template -->
     <link href="css/simple-sidebar.css" rel="stylesheet">
   </head>
@@ -16,7 +17,7 @@
     <div class="d-flex" id="wrapper">
       <!-- Page Content -->
       <div id="page-content-wrapper">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <nav class="navbar navbar-expand-lg navbar-dark  bg-secondary border-bottom">
           <!-- <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button> -->
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -37,65 +38,40 @@
               <li class="nav-item">
                 <!-- <a class="dropdown-item" href="{{ url('/redirect') }}">Login with Google</a> -->
                 <div class="text-center">
-  <a href="{{ route('login') }}" class="nav-link" >Log In</a>
-</div>
+                  <a href="{{ route('login') }}" class="nav-link" >Log In</a>
+                </div>
               </li>
             </ul>
           </div>
         </nav>
-        <div class="container-fluid">
+        <!--  <div class="container-fluid">
           <h4 class="mt-4">Tickets</h4>
-        </div>
- <!--        <div class="modal fade" id="orangeModalSubscription" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog modal-notify modal-warning" role="document">
-   
-    <div class="modal-content">
-
-      <div class="modal-header text-center">
-        <h4 class="modal-title white-text w-100 font-weight-bold py-2">Log In With Existing Account</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true" class="white-text">&times;</span>
-        </button>
-      </div> -->
-
-      <!--Body-->
-      <!-- <div class="modal-body">
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-        <div class="md-form">
-          
-          <label>Email</label>
-          <input type="text" id="email" name="email" class="form-control validate">
-          
-        </div>
-
-        <div class="md-form">
-          <label data-error="wrong" data-success="right" for="form2">Password</label>
-          <input type="password" id="password" name="password" class="form-control validate">
-          
-        </div><br>
-         <button type="submit" class="btn btn-success btn-block" name="signin">{{ __('Login') }}</button>
-      </div> -->
-    </form>
-
-      <!--Footer-->
-      <!-- <div class="modal-footer justify-content-center">
-        <h5 class="modal-title white-text w-100 font-weight-bold py-2 text-center">OR</h5>
-        <a href="{{ url('/redirect') }}" class="btn btn-danger btn-block"><i class="fa fa-google"></i> Sign in with <b>Google</b></a>
-       
-      </div> -->
+        </div> -->
+      </form>
     </div>
     <!--/.Content-->
   </div>
 </div>
-        <div class="">
+<!--   <form action="/search" method="get" accept-charset="utf-8">
+  <div class="input-group">
+    <input type="search" name="search" class="input-control ml-auto mt-1 mt-lg-0t" placeholder="Search...">
+    
+    <button type="submit" class="btn btn-light btn-sm"><i class="fa fa-search"></i></button>
+    
+  </div>
+  
+</form> -->
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">{{ __('Tickets') }}
           <form action="/search" method="get" accept-charset="utf-8">
             <div class="input-group">
-              <input type="search" name="search" class="input-control ml-auto mt-1 mt-lg-0t" placeholder="Search...">
-              <span class="input-group-prepend">
-                <button type="submit" class="btn btn-primary btn-sm">Search</button>
-              </span>
+              <input type="search" name="search" class="form-control form-control-sm ml-auto mt-1 mt-lg-0t" placeholder="Search...">
+              
+              <button type="submit" class="btn btn-light btn-sm"><i class="fa fa-search"></i></button>
+              
             </div>
             
           </form>
@@ -135,48 +111,26 @@
           </table>
           {{ $tickets->links() }}
         </div>
-        
-        
       </div>
-      <!-- /#page-content-wrapper -->
     </div>
-    <!-- /#wrapper -->
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-    e.preventDefault();
-    $("#wrapper").toggleClass("toggled");
-    });
-    </script>
-  </body>
+  </div>
+</div>
+</div>
+</div>
+<!-- /#page-content-wrapper -->
+</div>
+<!-- /#wrapper -->
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Menu Toggle Script -->
+<script>
+$("#menu-toggle").click(function(e) {
+e.preventDefault();
+$("#wrapper").toggleClass("toggled");
+});
+</script>
+</body>
 </html>
-
 <?php
-
-//$conn = mysqli_connect("localhost","root","","tickets_db");
-
-// if (isset($_POST["signin"])) {
-//   # code...
-//   $email = $_POST["email"];
-//   $password = $_POST["password"];
-//   $query = "SELECT * FROM users WHERE email='$email' OR password='$password'";
-
-//   $result = mysqli_query($conn, $query);
-//   if (mysqli_num_rows($result) > 0) {
-//     # code...
-//     while ($row = mysqli_fetch_assoc($result)) {
-//       # code...
-//       if (($row["role"] == "moderator")) {
-//        return redirect('/moderator-home');
-//       }else if (($row["role"] == "admin")) {
-//        print('admin');
-//       }else{
-//         print('failed');
-//       }
-//     }
-// }
-// }
 ?>

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use App\Tickets;
 use App\User;
+use App\Role;
 use DB;
 use Socialite;
 use Auth;
@@ -79,13 +80,13 @@ class TicketsController extends Controller
     }
     public function newTicket(){
 
-    	$tickets = DB::select('SELECT * FROM tickets');
+    	$tickets = DB::select('SELECT * FROM users');
 
     	return view('admin.newTicket',['tickets'=>$tickets]);
     }
     public function newTicketCo(){
 
-    	$tickets = DB::select('SELECT * FROM tickets');
+    	$tickets = DB::select('SELECT * FROM users');
 
     	return view('moderator.newTicket',['tickets'=>$tickets]);
     }
@@ -172,7 +173,7 @@ class TicketsController extends Controller
     public function redirectToGoogle() {
         return Socialite::driver('google')->redirect();
     }
-    public function handleGoogleCallback() { 
+    public function handleGoogleCallback(User $user) { 
         //$role = DB::select('SELECT * FROM users where role==user');
         try {
             $user = Socialite::driver('google')->user();
@@ -183,12 +184,17 @@ class TicketsController extends Controller
                 Auth::login($finduser);
                 return redirect('/user-home');
             }else {
-                $newUser = User::create(['name' => $user->name, 'email' => $user->email, 'password'=>$user->password, 'google_id' => $user->id]);
+                $newUser = User::create([
+                    'name' => $user->name, 
+                    'email' => $user->email, 
+                    'google_id' => $user->id]);
                 Auth::login($newUser);
                 return redirect('/user-home');
             }
         }
-        catch(Exception $e) {
+        catch(Thowable $e) {
+            //
+            report($e);
             return redirect('tickets/');
         }
     }
@@ -226,6 +232,11 @@ class TicketsController extends Controller
        
        $tickets = DB::select('SELECT * FROM tickets where id = ?',[$id]);
        return view('admin.edit', ['tickets' => $tickets]);
+    }
+    public function editMod($id){
+       
+       $tickets = DB::select('SELECT * FROM tickets where id = ?',[$id]);
+       return view('moderator.edit', ['tickets' => $tickets]);
     }
 
     public function update(Request $request, $id){
@@ -279,4 +290,17 @@ class TicketsController extends Controller
         print('ticket not found');
     }
     }
+
+// public function index(){   
+//     return view('demo/index');
+// }
+    public function upload_ckeditor(Request $request){
+        $request->upload->move(public_path('uploads'),$request->file('upload')->getClientOriginalName());
+        echo json_encode(array('file_name'=>$request('uploads'),$request->file('upload')->getClientOriginalName()));
+    }
+    public function file_browser(){
+
+    }
+
+
 }

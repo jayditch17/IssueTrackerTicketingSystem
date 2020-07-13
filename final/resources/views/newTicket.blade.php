@@ -35,15 +35,15 @@
             @csrf
                         <div class="form-group" onsubmit="return submitUserForm();">
                             <label>Project</label>
-                            <select class="form-control" name="project">
-                              <option>Select Project</option>
-                            </select>
+                            <input type="text" name="project" class="form-control" value="" autocomplete="off">
                             <span class="help-block"></span>
                         </div>
                          <div class="form-group">
                             <label>Tracker</label>
                             <select class="form-control" name="tracker">
-                              <option>Select Tracker</option>
+                              <option selected disabled >Select Tracker</option>
+                              <option value="Bug">Bug</option>
+                              <option value="Feature">Feature</option>
                             </select>
                             <span class="help-block"></span>
                         </div>
@@ -54,23 +54,19 @@
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email" name="email" class="form-control" value="" autocomplete="off">
+                            <input type="text" name="email" class="form-control" value="">
                             <span class="help-block"></span>
-                        </div>
+                        </div> 
                         <div class="form-group">
                             <label>Description</label><br>
                             <textarea class="form-control" name="description" id="summary-ckeditor"  rows="10" autocomplete="off"></textarea>
                             
                             
                         </div>
-                            
-                        </div> 
                         <div class="form-group">
                             <label>Status</label>
                             <select class="form-control" name="status">
                             <option>New</option>
-                            <option>In Progress</option>
-                            <option>Resolved</option>
                           </select>
                             <span class="help-block"></span>
                         </div>
@@ -78,8 +74,8 @@
                             <label>Priority</label>
                             <select class="form-control" name="priority">
                             <option>Normal</option>
-                            <option></option>
-                            <option></option>
+                            <option disabled>Low</option>
+                            <option disabled>High</option>
                           </select>
                             <span class="help-block"></span>
                         </div>
@@ -139,8 +135,20 @@
 
     <script src="{{asset('ckeditor.js') }}"></script>
     <script>
-      CKEDITOR.replace('summary-ckeditor')
+      CKEDITOR.replace('summary-ckeditor',{
+        filebrowserUploadUrl:"{{asset('/demo/upload_ckeditor')}}",
+        filebrowserBrowseUrl:"{{asset('/demo/file_browser')}}"
+      });
     </script>
+    <!-- <script src="https://cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+<script>
+  
+    CKEDITOR.replace('editor',{
+      filebrowserBrowseUrl:filemanager.ckBrowseUrl
+    });
+  
+</script> -->
+
 
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
